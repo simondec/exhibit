@@ -8,8 +8,9 @@
 
 
 @interface Moment : NSObject
-@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *momentDescription;
 @property (nonatomic) NSString *author;
+@property (nonatomic) NSString *relativeDate;
 @property (nonatomic) UIImage *authorAvatar;
 @property (nonatomic) UIImage *media;
 @property (nonatomic) UIImage *blurredBackground;

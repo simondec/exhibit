@@ -5,9 +5,12 @@
 
 #import "PresentationViewController.h"
 #import "SlideshowController.h"
+#import "PresentationView.h"
+#import "Moment.h"
 
-@interface PresentationViewController()
+@interface PresentationViewController() <SlideshowObserver>
 @property (nonatomic) SlideshowController *slideshowController;
+@property (nonatomic) PresentationView *presentationView;
 @end
 
 @implementation PresentationViewController
@@ -17,5 +20,27 @@
         _slideshowController = slideshowController;
     }
     return self;
+}
+
+- (void)loadView
+{
+    self.presentationView = [PresentationView new];
+    self.view = self.presentationView;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.slideshowController addObserver:self];
+    [self.slideshowController startSlideshow];
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - SlideshowObserver
+//------------------------------------------------------------------------------
+
+- (void)displayMoment:(Moment *)moment duration:(NSTimeInterval)duration
+{
+    [self.presentationView transitionToMoment:moment duration:duration];
 }
 @end

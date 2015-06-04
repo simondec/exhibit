@@ -6,6 +6,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class Moment;
+
 
 @interface PresentationView : UIView
+- (void)transitionToMoment:(Moment *)moment duration:(NSTimeInterval)duration;
 @end
