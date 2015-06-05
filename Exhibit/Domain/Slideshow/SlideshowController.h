@@ -9,6 +9,7 @@
 @class Configuration;
 @class Moment;
 @protocol SlideshowObserver;
+@class TTTTimeIntervalFormatter;
 
 
 @interface SlideshowController : NSObject

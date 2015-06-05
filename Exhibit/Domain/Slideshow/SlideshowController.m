@@ -11,8 +11,10 @@
 #import "SDWebImageManager.h"
 #import "AUBMedia.h"
 #import "UIImage+ProportionalFill.h"
+#import "TTTTimeIntervalFormatter.h"
 #import "UIImage+BlurredFilter.h"
 #import "AUBAvatar.h"
+#import "TTTTimeIntervalFormatter.h"
 
 @interface SlideshowController ()
 @property (nonatomic) Configuration *configuration;
@@ -21,6 +23,7 @@
 @property (nonatomic) NSMutableArray *momentsData;
 @property (nonatomic) NSUInteger nextMomentIndex;
 @property (nonatomic) NSTimer *momentSwitchTimer;
+@property (nonatomic) TTTTimeIntervalFormatter *timeIntervalFormatter;
 @end
 
 @implementation SlideshowController
@@ -31,6 +34,9 @@
         _observers = [NSMutableArray new];
         _momentsInfo = [NSMutableArray new];
         _momentsData = [NSMutableArray new];
+
+        self.timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
+        self.timeIntervalFormatter.presentTimeIntervalMargin = 60;
     }
     return self;
 }
@@ -93,6 +99,13 @@
         Moment *moment = [Moment new];
         moment.momentDescription = nextMoment.momentDescription;
         moment.author = nextMoment.user.fullName;
+        moment.relativeDate = [self.timeIntervalFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:nextMoment.createdAt];
+
+        moment.authorAvatar = [imageCache imageFromMemoryCacheForKey:nextMoment.user.avatar.thumb.absoluteString];
+        if (!moment.authorAvatar) {
+            NSData *imageData = [NSData dataWithContentsOfURL:nextMoment.user.avatar.thumb];
+            moment.authorAvatar = [UIImage imageWithData:imageData];
+        }
 
         moment.media = [imageCache imageFromMemoryCacheForKey:nextMoment.media.large.absoluteString];
         if (!moment.media) {

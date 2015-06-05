@@ -24,6 +24,8 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[AUBAubergiste sharedInstance] setClientID:AubergisteClientID clientSecret:AubergisteClientSecret];
+    
+    [application setStatusBarHidden:YES];
 
     Configuration *config = [Configuration new];
     config.organizationID = @"mirego";

@@ -87,7 +87,7 @@
     [self.currentSlideView presentMoment:nil];
 
     NSLog(@"moveLeft %d", self.moveLeft);
-    CGFloat translationX = (self.moveLeft ? -10 : 10);
+    CGFloat translationX = (self.moveLeft ? -20 : 20);
 
     [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.currentSlideView.transform = CGAffineTransformMakeTranslation(translationX, 0);
