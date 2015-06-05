@@ -79,23 +79,23 @@
     if (!CGSizeEqualToSize(self.mc_size, self.referenceSize)) {
         self.referenceSize = self.mc_size;
 
-        CGSize momentTitleSize = [self.momentTitle sizeThatFits:CGSizeMake(320 * 1.5f, MAXFLOAT)];
-        CGFloat horizontalMargin = floorf((self.mc_width - 320 - momentTitleSize.width - 40.0f) / 2.0f);
+        CGSize momentInfoSize = CGSizeMake(320 * 1.5f, self.mc_height);
+        CGFloat horizontalMargin = floorf((self.mc_width - 320 - momentInfoSize.width - 40.0f) / 2.0f);
 
         if (self.moveLeft) {
             [self.momentImageContainerView mc_setPosition:MCViewPositionVCenterLeft withMargins:UIEdgeInsetsMake(0, horizontalMargin, 0, 0) size:CGSizeMake(320 + 20, 320 + 20)];
-            [self.momentInfoContainerClipView mc_setRelativePosition:MCViewRelativePositionToTheRightCentered toView:self.momentImageContainerView withMargins:UIEdgeInsetsMake(0, 40.0f, 0, 0) size:CGSizeMake(momentTitleSize.width, self.mc_height)];
+            [self.momentInfoContainerClipView mc_setRelativePosition:MCViewRelativePositionToTheRightCentered toView:self.momentImageContainerView withMargins:UIEdgeInsetsMake(0, 40.0f, 0, 0) size:CGSizeMake(momentInfoSize.width, self.mc_height)];
             self.momentInfoContainerView.frame = self.momentInfoContainerClipView.bounds;
-            [self.momentTitle mc_setPosition:MCViewPositionVCenterLeft withMargins:UIEdgeInsetsMake(0, 0, 20, 0) size:momentTitleSize];
+            [self.momentTitle mc_setPosition:MCViewPositionVCenterLeft withMargins:UIEdgeInsetsMake(0, 0, 20, 0) size:[self.momentTitle sizeThatFits:momentInfoSize]];
 //            [self.authorAvatar mc_setRelativePosition:MCViewRelativePositionUnderAlignedLeft toView:self.momentTitle withMargins:UIEdgeInsetsMake(10, 0, 0, 0)];
 //            [self.momentInfo mc_setRelativePosition:MCViewRelativePositionToTheRightCentered toView:self.authorAvatar withMargins:UIEdgeInsetsMake(0, 10, 0, 0) size:[self.momentInfo sizeThatFits:CGSizeZero]];
             [self.momentInfo mc_setRelativePosition:MCViewRelativePositionUnderAlignedLeft toView:self.momentTitle withMargins:UIEdgeInsetsMake(10, 0, 0, 0) size:[self.momentInfo sizeThatFits:CGSizeZero]];
 
         } else {
             [self.momentImageContainerView mc_setPosition:MCViewPositionVCenterRight withMargins:UIEdgeInsetsMake(0, 0, 0, horizontalMargin) size:CGSizeMake(320 + 20, 320 + 20)];
-            [self.momentInfoContainerClipView mc_setRelativePosition:MCViewRelativePositionToTheLeftCentered toView:self.momentImageContainerView withMargins:UIEdgeInsetsMake(0, 0, 0, 40.0f) size:CGSizeMake(momentTitleSize.width, self.mc_height)];
+            [self.momentInfoContainerClipView mc_setRelativePosition:MCViewRelativePositionToTheLeftCentered toView:self.momentImageContainerView withMargins:UIEdgeInsetsMake(0, 0, 0, 40.0f) size:CGSizeMake(momentInfoSize.width, self.mc_height)];
             self.momentInfoContainerView.frame = self.momentInfoContainerClipView.bounds;
-            [self.momentTitle mc_setPosition:MCViewPositionVCenterRight withMargins:UIEdgeInsetsMake(0, 0, 20, 0) size:momentTitleSize];
+            [self.momentTitle mc_setPosition:MCViewPositionVCenterRight withMargins:UIEdgeInsetsMake(0, 0, 20, 0) size:[self.momentTitle sizeThatFits:momentInfoSize]];
 //            [self.authorAvatar mc_setRelativePosition:MCViewRelativePositionUnderAlignedRight toView:self.momentTitle withMargins:UIEdgeInsetsMake(10, 0, 0, 0)];
 //            [self.momentInfo mc_setRelativePosition:MCViewRelativePositionToTheLeftCentered toView:self.authorAvatar withMargins:UIEdgeInsetsMake(0, 0, 0, 10) size:[self.momentInfo sizeThatFits:CGSizeZero]];
             [self.momentInfo mc_setRelativePosition:MCViewRelativePositionUnderAlignedRight toView:self.momentTitle withMargins:UIEdgeInsetsMake(10, 0, 0, 0) size:[self.momentInfo sizeThatFits:CGSizeZero]];

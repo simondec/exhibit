@@ -12,12 +12,17 @@
 - (void)encodeWithCoder:(NSCoder *)coder
 {
     [coder encodeObject:self.organizationID forKey:@"organizationID"];
+    [coder encodeDouble:self.slideDuration forKey:@"slideDuration"];
+    [coder encodeInteger:self.slideCount forKey:@"slideCount"];
+
 }
 
 - (id)initWithCoder:(NSCoder *)coder
 {
     if (self = [super init]) {
         self.organizationID = [coder decodeObjectForKey:@"organizationID"];
+        self.slideDuration = [coder decodeDoubleForKey:@"slideDuration"];
+        self.slideCount = [coder decodeIntegerForKey:@"slideCount"];
     }
     return self;
 }

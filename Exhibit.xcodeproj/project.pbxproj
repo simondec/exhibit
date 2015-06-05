@@ -25,6 +25,7 @@
 		1F590CF446CFA7B78F94678C /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590DC97DF6974A05ACE13E /* Lato-MediumItalic.ttf */; };
 		1F590D071DFDBE1AD4999747 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590A32D84EEEBA92A8E7A4 /* Moment.m */; };
 		1F590D6B8920A0EC0877F385 /* SlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590BB9C9EBFAEF6BA59C82 /* SlideView.m */; };
+		1F590F42B43CFBECFF8DD577 /* MomentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590D0864B29CDB2406DDDF /* MomentViewCell.m */; };
 		1F590F8AA9737B6E111C3664 /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59006D58346A8B97D9346E /* Configuration.m */; };
 		1F590FF1C4B4275E7FAC594C /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F59080DEF06B3546F80B828 /* Lato-Semibold.ttf */; };
 		1F590FF9D2AD72AB4E57E4A4 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5904A9F3626A26BAC270B1 /* Lato-Italic.ttf */; };
@@ -56,6 +57,7 @@
 		1F590227F5B736B585B9CD85 /* MomentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsViewController.h; sourceTree = "<group>"; };
 		1F5902EABFC45C1AEE3FEBAB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		1F5904A9F3626A26BAC270B1 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		1F5904D8E9B7D5F0F91F58EF /* MomentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewCell.h; sourceTree = "<group>"; };
 		1F590572ED87ADEC71216039 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		1F5905EE5C29FC8FBCAE090E /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		1F590602051A88B409BD639C /* PresentationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationView.m; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		1F590BCCBB228397E8E7761F /* SlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideView.h; sourceTree = "<group>"; };
 		1F590BDA7D80B949EF4CAB13 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		1F590BFE9AA82F8D5B2398CC /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		1F590D0864B29CDB2406DDDF /* MomentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentViewCell.m; sourceTree = "<group>"; };
 		1F590D3D3C2A95F7D3ABA124 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		1F590DC97DF6974A05ACE13E /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1F590E34EC54081E1062ACC3 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 			children = (
 				1F590B4C3B7FD1B7CA9ED1B8 /* MomentsViewController.m */,
 				1F590227F5B736B585B9CD85 /* MomentsViewController.h */,
+				1F590D0864B29CDB2406DDDF /* MomentViewCell.m */,
+				1F5904D8E9B7D5F0F91F58EF /* MomentViewCell.h */,
 			);
 			path = Moments;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				TargetAttributes = {
 					457C07371B1E12750035F784 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = WD972BHRT7;
 					};
 					457C07501B1E12760035F784 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -467,6 +473,7 @@
 				1F5902FC86102945E7EC5A3C /* UIImage+BlurredFilter.m in Sources */,
 				1F590D6B8920A0EC0877F385 /* SlideView.m in Sources */,
 				1F590653EAE37CD105664542 /* AvatarView.m in Sources */,
+				1F590F42B43CFBECFF8DD577 /* MomentViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,7 +594,9 @@
 			baseConfigurationReference = E45CA316C03A30F62B79F089 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Exhibit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
@@ -599,7 +608,9 @@
 			baseConfigurationReference = C9CFEAB5A865F08F5A807C4E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Exhibit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";

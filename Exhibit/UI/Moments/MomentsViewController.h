@@ -6,6 +6,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class SlideshowController;
+
 
 @interface MomentsViewController : UIViewController
+- (instancetype)initWithSlideshowController:(SlideshowController *)slideshowController;
 @end

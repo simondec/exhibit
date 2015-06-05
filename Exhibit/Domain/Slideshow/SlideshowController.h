@@ -8,18 +8,31 @@
 
 @class Configuration;
 @class Moment;
-@protocol SlideshowObserver;
 @class TTTTimeIntervalFormatter;
+
+@protocol SlideshowDisplay;
+@protocol SlideshowControl;
 
 
 @interface SlideshowController : NSObject
+@property (nonatomic, weak) id <SlideshowDisplay> slideshowDisplayDelegate;
+@property (nonatomic, weak) id <SlideshowControl> slideshowControlDelegate;
 - (instancetype)initWithConfiguration:(Configuration *)configuration;
-- (void)addObserver:(id <SlideshowObserver>)observer;
-- (void)removeObserver:(id <SlideshowObserver>)observer;
+- (void)didSelectMomentAtIndex:(NSUInteger)index;
+
+- (NSInteger)numberOfMoments;
+- (NSURL *)momentMediaURLAtIndex:(NSUInteger)index;
+
 - (void)startSlideshow;
 @end
 
-@protocol SlideshowObserver <NSObject>
+@protocol SlideshowDisplay <NSObject>
 @optional
 - (void)displayMoment:(Moment *)moment duration:(NSTimeInterval)duration;
+@end
+
+@protocol SlideshowControl <NSObject>
+@optional
+- (void)didLoadMoments;
+- (void)displayingMomentAtIndex:(NSInteger)index;
 @end

@@ -8,7 +8,7 @@
 #import "PresentationView.h"
 #import "Moment.h"
 
-@interface PresentationViewController() <SlideshowObserver>
+@interface PresentationViewController() <SlideshowDisplay>
 @property (nonatomic) SlideshowController *slideshowController;
 @property (nonatomic) PresentationView *presentationView;
 @end
@@ -31,7 +31,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.slideshowController addObserver:self];
+    [self.slideshowController setSlideshowDisplayDelegate:self];
     [self.slideshowController startSlideshow];
 }
 
