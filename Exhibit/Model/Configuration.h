@@ -10,5 +10,6 @@
 @interface Configuration : NSObject <NSCoding>
 @property (nonatomic) NSString *organizationID;
 @property (nonatomic) NSTimeInterval slideDuration;
+@property (nonatomic) NSTimeInterval recentMomentsLookupInterval;
 @property (nonatomic) NSInteger slideCount;
 @end

@@ -7,8 +7,13 @@
 #import <UIKit/UIKit.h>
 
 @class Moment;
-
+@protocol PresentationViewDelegate;
 
 @interface PresentationView : UIView
+@property (nonatomic, weak) id <PresentationViewDelegate> delegate;
 - (void)transitionToMoment:(Moment *)moment duration:(NSTimeInterval)duration;
+@end
+
+@protocol PresentationViewDelegate <NSObject>
+- (void)didCompleteTransition;
 @end

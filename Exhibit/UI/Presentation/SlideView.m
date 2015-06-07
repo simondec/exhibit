@@ -51,7 +51,7 @@
         self.momentTitle.numberOfLines = 0;
         self.momentTitle.text = moment.momentDescription;
         self.momentTitle.textColor = [UIColor whiteColor];
-        self.momentTitle.font = [UIFont fontWithName:@"Lato-Light" size:30];
+        self.momentTitle.font = [UIFont fontWithName:@"Lato-Medium" size:30];
         self.momentTitle.shadowColor = [UIColor colorWithWhite:0 alpha:0.2f];
         self.momentTitle.shadowOffset = CGSizeMake(0, 1);
         self.momentTitle.textAlignment = moveLeft ? NSTextAlignmentLeft : NSTextAlignmentRight;
@@ -63,8 +63,8 @@
 
         self.momentInfo = [UILabel new];
         self.momentInfo.text = [NSString stringWithFormat:@"%@ ― %@", moment.author, moment.relativeDate];
-        self.momentInfo.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6f];
-        self.momentInfo.font = [UIFont fontWithName:@"Lato-Regular" size:16];
+        self.momentInfo.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
+        self.momentInfo.font = [UIFont fontWithName:@"Lato-Medium" size:18];
         self.momentInfo.shadowColor = [UIColor colorWithWhite:0 alpha:0.2f];
         self.momentInfo.shadowOffset = CGSizeMake(0, 1);
         [self.momentInfoContainerView addSubview:self.momentInfo];

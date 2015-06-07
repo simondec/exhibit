@@ -25,6 +25,7 @@
 
         self.backgroundImageView = [UIImageView new];
         self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.backgroundImageView.alpha = 0.9f;
         [self addSubview:self.backgroundImageView];
 
         self.nwadLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NWADLogoPicto"]];
@@ -42,7 +43,8 @@
         self.referenceSize = self.mc_size;
         CGSize backgroundSize = self.mc_size;
         [self.backgroundImageView mc_setPosition:MCViewPositionVCenterLeft withMargins:UIEdgeInsetsZero size:backgroundSize];
-        [self.nwadLogoImageView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(30, 30)];
+        [self.nwadLogoImageView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(40, 40)];
+        [self.currentSlideView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:self.mc_size];
     }
 }
 
@@ -54,7 +56,6 @@
 {
     self.duration = duration;
     self.moveLeft = !self.moveLeft;
-    NSLog(@"changed moveLeft: %d", self.moveLeft);
 
     if (self.currentSlideView) {
         [self.currentSlideView dismissMoment:^{
@@ -89,10 +90,13 @@
     [self addSubview:self.currentSlideView];
     [self.currentSlideView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:self.mc_size];
 
-    [self.currentSlideView presentMoment:nil];
+    [self.currentSlideView presentMoment:^{
+        if ([self.delegate respondsToSelector:@selector(didCompleteTransition)]) {
+            [self.delegate didCompleteTransition];
+        }
+    }];
 
-    NSLog(@"moveLeft %d", self.moveLeft);
-    CGFloat translationX = (self.moveLeft ? -40 : 40);
+    CGFloat translationX = (self.moveLeft ? -30 : 30);
 
     [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.currentSlideView.transform = CGAffineTransformMakeTranslation(translationX, 0);

@@ -15,6 +15,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.imageView = [UIImageView new];
+        self.imageView.backgroundColor = [UIColor blackColor];
         self.imageView.alpha = 0.4f;
         [self addSubview:self.imageView];
     }

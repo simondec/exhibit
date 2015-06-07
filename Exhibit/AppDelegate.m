@@ -18,6 +18,8 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
 
 @interface AppDelegate ()
 @property (nonatomic) SlideshowController *slideshowController;
+@property (nonatomic) PresentationViewController *presentationViewController;
+@property (nonatomic) UIWindow *externalWindow;
 @end
 
 @implementation AppDelegate
@@ -31,30 +33,105 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
     Configuration *config = [Configuration new];
     config.organizationID = @"mirego";
     config.slideDuration = 8;
-    config.slideCount = 50;
+    config.slideCount = 5;
+    config.recentMomentsLookupInterval = 10;
 
     self.slideshowController = [[SlideshowController alloc] initWithConfiguration:config];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor blackColor];
 
-//    PresentationViewController *presentationViewController = [[PresentationViewController alloc] initWithSlideshowController:self.slideshowController];
-//    self.window.rootViewController = presentationViewController;
+    [self checkForExistingScreenAndInitializeIfPresent];
 
-    MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
-    self.window.rootViewController = momentsViewController;
+    self.presentationViewController = [[PresentationViewController alloc] initWithSlideshowController:self.slideshowController];
+
+    if (self.externalWindow) {
+        self.externalWindow.rootViewController = self.presentationViewController;
+
+        MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
+        self.window.rootViewController = momentsViewController;
+
+    } else {
+        self.window.rootViewController = self.presentationViewController;
+    }
+
+
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+
+    [center addObserver:self selector:@selector(handleScreenDidConnectNotification:) name:UIScreenDidConnectNotification object:nil];
+    [center addObserver:self selector:@selector(handleScreenDidDisconnectNotification:) name:UIScreenDidDisconnectNotification object:nil];
 
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self];
 }
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
     return UIInterfaceOrientationMaskLandscape;
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - Private methods
+//------------------------------------------------------------------------------
+
+- (void)checkForExistingScreenAndInitializeIfPresent
+{
+    if ([[UIScreen screens] count] > 1)
+    {
+        // Get the screen object that represents the external display.
+        UIScreen *secondScreen = [[UIScreen screens] objectAtIndex:1];
+        // Get the screen's bounds so that you can create a window of the correct size.
+        CGRect screenBounds = secondScreen.bounds;
+
+        self.externalWindow = [[UIWindow alloc] initWithFrame:screenBounds];
+        self.externalWindow.backgroundColor = [UIColor blackColor];
+        self.externalWindow.screen = secondScreen;
+        self.externalWindow.hidden = NO;
+
+        NSLog(@"External window detected");
+
+    }
+}
+
+- (void)handleScreenDidConnectNotification:(NSNotification*)aNotification
+{
+    UIScreen *newScreen = [aNotification object];
+    CGRect screenBounds = newScreen.bounds;
+
+    if (!self.externalWindow)
+    {
+        self.externalWindow = [[UIWindow alloc] initWithFrame:screenBounds];
+        self.externalWindow.backgroundColor = [UIColor blackColor];
+        self.externalWindow.screen = newScreen;
+        self.externalWindow.hidden = NO;
+
+
+        MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
+        self.window.rootViewController = momentsViewController;
+        self.externalWindow.rootViewController = self.presentationViewController;
+
+    }
+
+    NSLog(@"External window connected");
+}
+
+- (void)handleScreenDidDisconnectNotification:(NSNotification*)aNotification
+{
+    if (self.externalWindow)
+    {
+        self.externalWindow.rootViewController = nil;
+        self.externalWindow.hidden = YES;
+        self.externalWindow = nil;
+        self.window.rootViewController = self.presentationViewController;
+    }
+
+    NSLog(@"External window disconnected");
 }
 
 @end
