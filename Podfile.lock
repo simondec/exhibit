@@ -23,6 +23,7 @@ PODS:
   - GPUImage (0.1.6)
   - ISO8601DateFormatter (0.7)
   - JNWSpringAnimation (0.7.1)
+  - MCCollectionTypeSafety (0.1.1)
   - MCUIColorUtils (1.0.0)
   - MCUIImageAdvanced (0.2.7):
     - MGImageUtilities
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - FormatterKit
   - GPUImage
   - JNWSpringAnimation
+  - MCCollectionTypeSafety (from `https://github.com/mirego/MCCollectionTypeSafety.git`)
   - MCUIColorUtils (~> 1.0.0)
   - MCUIImageAdvanced (~> 0.2.5)
   - MCUIViewLayout (~> 0.3.4)
@@ -49,11 +51,16 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   Aubergiste:
     :git: git@github.com:mirego/Aubergiste.git
+  MCCollectionTypeSafety:
+    :git: https://github.com/mirego/MCCollectionTypeSafety.git
 
 CHECKOUT OPTIONS:
   Aubergiste:
     :commit: b6da39d25513baefc175185cc22177ad4ed57460
     :git: git@github.com:mirego/Aubergiste.git
+  MCCollectionTypeSafety:
+    :commit: 0f32fb795debc1a9d1acf524ab42cbebbdedbdb3
+    :git: https://github.com/mirego/MCCollectionTypeSafety.git
 
 SPEC CHECKSUMS:
   Aubergiste: 6ae553502655d40a3aab7e213601500e5afe0f87
@@ -61,6 +68,7 @@ SPEC CHECKSUMS:
   GPUImage: 4675ce4a5370ca92fcea8623b2a08b8f0c51b940
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   JNWSpringAnimation: cd4c2f4464324f63f176c3624ffccf205211a100
+  MCCollectionTypeSafety: e87a82cd481e92b99d34749f111783fbca144644
   MCUIColorUtils: 6f11e1702db4ff5419d28cba1e8f7a82dd82d5fe
   MCUIImageAdvanced: fbc5873532933a17317fa02b45daf715565b8608
   MCUIViewLayout: d74cba371bf831a66ed52412763274b6a04f5835

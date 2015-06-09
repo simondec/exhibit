@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface Configuration : NSObject <NSCoding>
+@interface Settings : NSObject <NSCoding>
 @property (nonatomic) NSString *organizationID;
 @property (nonatomic) NSTimeInterval slideDuration;
 @property (nonatomic) NSTimeInterval recentMomentsLookupInterval;

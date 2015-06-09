@@ -1,0 +1,48 @@
+{
+	"title": "settings_lookup_interval_title",
+	"linkedValue": "recentMomentsLookupInterval",
+	"sections":
+	[
+		{
+			"header": "",
+			"fields":
+			[
+				{
+					"type": "singleSelect",
+					"value": 60,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 120,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 300,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 600,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 1200,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 1800,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 3600,
+					"formatter":"DurationFormatter"
+				}
+			]
+		}
+	]
+}

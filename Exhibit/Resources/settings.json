@@ -1,0 +1,45 @@
+{
+	"title": "settings_title",
+	"sections":
+	[
+		{
+			"header": "",
+			"fields":
+			[
+				{
+					"type": "keyValue",
+					"caption": "settings_organization_caption",
+					"linkedValue": "organizationID",
+					"target": "organization"
+				}
+			]
+		},
+		{
+			"header": "",
+			"fields":
+			[
+				{
+					"type": "keyValue",
+					"caption": "settings_slide_count_caption",
+					"linkedValue": "slideCount",
+					"formatter":"IntegerFormatter",
+					"target": "slideCount"
+				},
+				{
+					"type": "keyValue",
+					"caption": "settings_slide_duration_caption",
+					"linkedValue": "slideDuration",
+					"formatter":"DurationFormatter",
+					"target": "slideDuration"
+				},
+				{
+					"type": "keyValue",
+					"caption": "settings_new_moments_interval_caption",
+					"linkedValue": "recentMomentsLookupInterval",
+					"formatter":"DurationFormatter",
+					"target": "lookupInterval"
+				}
+			]
+		}
+	]
+}

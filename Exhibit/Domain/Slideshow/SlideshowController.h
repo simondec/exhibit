@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class Configuration;
+@class Settings;
 @class Moment;
 @class TTTTimeIntervalFormatter;
 
@@ -16,7 +16,7 @@
 @interface SlideshowController : NSObject
 - (void)addSlideshowObserver:(id <SlideshowObserver>)observer;
 - (void)removeSlideshowObserver:(id <SlideshowObserver>)observer;
-- (instancetype)initWithConfiguration:(Configuration *)configuration;
+- (instancetype)initWithConfiguration:(Settings *)configuration;
 - (void)didSelectMomentAtChronologicalIndex:(NSUInteger)index;
 - (NSTimeInterval)slideDuration;
 - (NSInteger)numberOfMoments;

@@ -4,7 +4,7 @@
 //
 
 #import "SlideshowController.h"
-#import "Configuration.h"
+#import "Settings.h"
 #import "Moment.h"
 #import "AUBMoment.h"
 #import "AUBUser.h"
@@ -19,8 +19,8 @@
 static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 
 @interface SlideshowController ()
-@property (nonatomic) Configuration *configuration;
-@property (nonatomic) NSMutableArray *observers;
+@property (nonatomic) Settings *configuration;
+@property (nonatomic) NSHashTable *observers;
 @property (nonatomic) NSMutableArray *chronologicalMomentsInfo;
 @property (nonatomic) NSMutableArray *randomizedMomentsOrder;
 @property (nonatomic) NSCache *momentsData;
@@ -31,11 +31,11 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 @end
 
 @implementation SlideshowController
-- (instancetype)initWithConfiguration:(Configuration *)configuration
+- (instancetype)initWithConfiguration:(Settings *)configuration
 {
     if (self = [super init]) {
         _configuration = configuration;
-        _observers = [NSMutableArray new];
+        _observers = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
         _chronologicalMomentsInfo = [NSMutableArray new];
         _randomizedMomentsOrder = [NSMutableArray new];
 
@@ -54,9 +54,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 
 - (void)addSlideshowObserver:(id <SlideshowObserver>)observer
 {
-    if (![self.observers containsObject:observer]) {
-        [self.observers addObject:observer];
-    }
+    [self.observers addObject:observer];
 }
 
 - (void)removeSlideshowObserver:(id <SlideshowObserver>)observer

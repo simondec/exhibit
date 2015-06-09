@@ -10,8 +10,10 @@
 #import "AUBAubergiste.h"
 #import "PresentationViewController.h"
 #import "SlideshowController.h"
-#import "Configuration.h"
+#import "Settings.h"
 #import "MomentsViewController.h"
+#import "SettingsViewController.h"
+#import "OverviewViewController.h"
 
 static NSString *const AubergisteClientID = @"893123332c62670ee75b90df3e6378d2cefc85ac84d3e07d63ae37291414bef0";
 static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13762e17843300e87f3ce25eb8c6e434cb61";
@@ -30,36 +32,46 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
     
     [application setStatusBarHidden:YES];
 
-    Configuration *config = [Configuration new];
+    Settings *config = [Settings new];
     config.organizationID = @"mirego";
-    config.slideDuration = 8;
-    config.slideCount = 5;
-    config.recentMomentsLookupInterval = 10;
+    config.slideDuration = 7;
+    config.slideCount = 50;
+    config.recentMomentsLookupInterval = 60 * 5;
 
     self.slideshowController = [[SlideshowController alloc] initWithConfiguration:config];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor blackColor];
 
-    [self checkForExistingScreenAndInitializeIfPresent];
 
-    self.presentationViewController = [[PresentationViewController alloc] initWithSlideshowController:self.slideshowController];
+    SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithLayoutFileName:@"settings" settings:config];
+    UINavigationController *settingsNavController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
 
-    if (self.externalWindow) {
-        self.externalWindow.rootViewController = self.presentationViewController;
+    UISplitViewController *splitViewController = [UISplitViewController new];
+    [splitViewController setViewControllers:@[settingsNavController, [OverviewViewController new]]];
+    splitViewController.view.backgroundColor = [UIColor whiteColor];
+//    splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden;
+    self.window.rootViewController = splitViewController;
 
-        MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
-        self.window.rootViewController = momentsViewController;
-
-    } else {
-        self.window.rootViewController = self.presentationViewController;
-    }
-
-
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-
-    [center addObserver:self selector:@selector(handleScreenDidConnectNotification:) name:UIScreenDidConnectNotification object:nil];
-    [center addObserver:self selector:@selector(handleScreenDidDisconnectNotification:) name:UIScreenDidDisconnectNotification object:nil];
+//    [self checkForExistingScreenAndInitializeIfPresent];
+//
+//    self.presentationViewController = [[PresentationViewController alloc] initWithSlideshowController:self.slideshowController];
+//
+//    if (self.externalWindow) {
+//        self.externalWindow.rootViewController = self.presentationViewController;
+//
+//        MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
+//        self.window.rootViewController = momentsViewController;
+//
+//    } else {
+//        self.window.rootViewController = self.presentationViewController;
+//    }
+//
+//
+//    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+//
+//    [center addObserver:self selector:@selector(handleScreenDidConnectNotification:) name:UIScreenDidConnectNotification object:nil];
+//    [center addObserver:self selector:@selector(handleScreenDidDisconnectNotification:) name:UIScreenDidDisconnectNotification object:nil];
 
     [self.window makeKeyAndVisible];
     return YES;

@@ -7,28 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F590165FAE32D063740A11D /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F5905EB8028C1A1852CA2FB /* settings.json */; };
 		1F5901E0519A9A8D812EC0E4 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590630009C038991552D2C /* Lato-LightItalic.ttf */; };
+		1F59025C065C9D355AF44F9A /* DurationFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590F684A5A9AB15E84B38B /* DurationFormatter.m */; };
+		1F590286CFE639A1C62CAF2B /* lookupInterval.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F590E77748C5BC1F308D68A /* lookupInterval.json */; };
 		1F5902FC86102945E7EC5A3C /* UIImage+BlurredFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59078D870D907D9E188EA3 /* UIImage+BlurredFilter.m */; };
+		1F59034C9C9CD60D2E69EF8C /* KeyValueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590EFB78FF652269DD456A /* KeyValueTableViewCell.m */; };
 		1F59049227AD4BEC7836CE9A /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590BDA7D80B949EF4CAB13 /* Lato-SemiboldItalic.ttf */; };
 		1F5904A39FC2385C34CADB1A /* PresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590EC9F1D46E99D6A23359 /* PresentationViewController.m */; };
 		1F59052044A0D7D191D53B9E /* SlideshowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59060C40BFD66FAEAFA0DA /* SlideshowController.m */; };
+		1F59062F5AD40C77FBA6A388 /* IntegerFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590108AAC343965AD85E23 /* IntegerFormatter.m */; };
 		1F590653EAE37CD105664542 /* AvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590A451DFC04AAEA33F32F /* AvatarView.m */; };
+		1F590669F1BD40C7589B80E6 /* slideCount.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F590B66F3D6E2E0E4C13F24 /* slideCount.json */; };
 		1F59066E6B9F12BFF1D75826 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590E34EC54081E1062ACC3 /* Lato-Light.ttf */; };
 		1F5907383CD288BC6A913D85 /* PresentationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590602051A88B409BD639C /* PresentationView.m */; };
 		1F59075147C6D82D61560397 /* MomentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590B4C3B7FD1B7CA9ED1B8 /* MomentsViewController.m */; };
+		1F5907F053AB779BC7B540A6 /* OverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5905BB2CFE6A12C8DDC908 /* OverviewViewController.m */; };
 		1F5908D0F686A9FA337E9A75 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590D3D3C2A95F7D3ABA124 /* Lato-Medium.ttf */; };
+		1F59096A96F8CD56986953BD /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5902B08AC002B3E21728F8 /* SettingsController.m */; };
 		1F5909B5BCD5C296008AE6D2 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5902EABFC45C1AEE3FEBAB /* Lato-Bold.ttf */; };
+		1F590B10CE4D7F3757E589C7 /* SettingsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590C8BB2D7BE1D425160A8 /* SettingsSection.m */; };
 		1F590B2BCB4764C5A9337A63 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590AC427B3595049BBF180 /* Lato-BoldItalic.ttf */; };
 		1F590BA96964C4C52F0EF38C /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5905EE5C29FC8FBCAE090E /* Lato-Regular.ttf */; };
 		1F590BB85DEAB242D56F7F1A /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590572ED87ADEC71216039 /* Lato-ThinItalic.ttf */; };
 		1F590BBB92A7694A0CE4D044 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590BFE9AA82F8D5B2398CC /* Lato-Thin.ttf */; };
+		1F590CA3C3EDE82660200B2E /* SettingsField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5908ED8E5B1BA7E4F11E1B /* SettingsField.m */; };
 		1F590CF446CFA7B78F94678C /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590DC97DF6974A05ACE13E /* Lato-MediumItalic.ttf */; };
 		1F590D071DFDBE1AD4999747 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590A32D84EEEBA92A8E7A4 /* Moment.m */; };
+		1F590D1C2B5FAF67B09371DD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5901FBD8D78E74AC76969E /* SettingsViewController.m */; };
 		1F590D6B8920A0EC0877F385 /* SlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590BB9C9EBFAEF6BA59C82 /* SlideView.m */; };
+		1F590DD2C65743AA45F98707 /* SingleSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5902F0DC551CA6ACA6F87A /* SingleSelectTableViewCell.m */; };
+		1F590E3EB9D859E75100B631 /* slideDuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F59098DFC4B859C84DC2DC0 /* slideDuration.json */; };
 		1F590F42B43CFBECFF8DD577 /* MomentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590D0864B29CDB2406DDDF /* MomentViewCell.m */; };
-		1F590F8AA9737B6E111C3664 /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59006D58346A8B97D9346E /* Configuration.m */; };
+		1F590F8AA9737B6E111C3664 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59006D58346A8B97D9346E /* Settings.m */; };
+		1F590FD3BB631E59C4EDCD54 /* BaseSettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5901C3F7589F9477C4538C /* BaseSettingsTableViewCell.m */; };
 		1F590FF1C4B4275E7FAC594C /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F59080DEF06B3546F80B828 /* Lato-Semibold.ttf */; };
 		1F590FF9D2AD72AB4E57E4A4 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5904A9F3626A26BAC270B1 /* Lato-Italic.ttf */; };
+		455579BE1B25429C009923CD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 455579BD1B25429C009923CD /* Localizable.strings */; };
 		457C073E1B1E12760035F784 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457C073D1B1E12760035F784 /* main.m */; };
 		457C07411B1E12760035F784 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 457C07401B1E12760035F784 /* AppDelegate.m */; };
 		457C07491B1E12760035F784 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 457C07481B1E12760035F784 /* Images.xcassets */; };
@@ -50,15 +65,27 @@
 
 /* Begin PBXFileReference section */
 		0870BAD09C97D02B006F502F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F59006D58346A8B97D9346E /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
+		1F59006D58346A8B97D9346E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		1F5900B073968DF9E76D1084 /* Moment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moment.h; sourceTree = "<group>"; };
-		1F5901A2032FFC9DE41A0640 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		1F590108AAC343965AD85E23 /* IntegerFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegerFormatter.m; sourceTree = "<group>"; };
+		1F5901A2032FFC9DE41A0640 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		1F5901C3F7589F9477C4538C /* BaseSettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSettingsTableViewCell.m; sourceTree = "<group>"; };
 		1F5901D8DB5D28A8654B684C /* PresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationViewController.h; sourceTree = "<group>"; };
+		1F5901FBD8D78E74AC76969E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1F590227F5B736B585B9CD85 /* MomentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsViewController.h; sourceTree = "<group>"; };
+		1F59026F12EE1EE13E9D334F /* BaseSettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSettingsTableViewCell.h; sourceTree = "<group>"; };
+		1F59027CDDD6503D6B54D965 /* DurationFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DurationFormatter.h; sourceTree = "<group>"; };
+		1F5902B08AC002B3E21728F8 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		1F5902B1916F80200FFDA08C /* OverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewViewController.h; sourceTree = "<group>"; };
 		1F5902EABFC45C1AEE3FEBAB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		1F5902F0DC551CA6ACA6F87A /* SingleSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSelectTableViewCell.m; sourceTree = "<group>"; };
+		1F590435C9062005B1C26D7C /* IntegerFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerFormatter.h; sourceTree = "<group>"; };
 		1F5904A9F3626A26BAC270B1 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		1F5904D8E9B7D5F0F91F58EF /* MomentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewCell.h; sourceTree = "<group>"; };
+		1F5904DAF91D786443BC8069 /* Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatting.h; sourceTree = "<group>"; };
 		1F590572ED87ADEC71216039 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		1F5905BB2CFE6A12C8DDC908 /* OverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewViewController.m; sourceTree = "<group>"; };
+		1F5905EB8028C1A1852CA2FB /* settings.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = settings.json; sourceTree = "<group>"; };
 		1F5905EE5C29FC8FBCAE090E /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		1F590602051A88B409BD639C /* PresentationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationView.m; sourceTree = "<group>"; };
 		1F59060C40BFD66FAEAFA0DA /* SlideshowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideshowController.m; sourceTree = "<group>"; };
@@ -66,22 +93,36 @@
 		1F59078D870D907D9E188EA3 /* UIImage+BlurredFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFilter.m"; sourceTree = "<group>"; };
 		1F59080DEF06B3546F80B828 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		1F590866B0E612A1CA5579CD /* SlideshowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideshowController.h; sourceTree = "<group>"; };
+		1F5908ED8E5B1BA7E4F11E1B /* SettingsField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsField.m; sourceTree = "<group>"; };
+		1F590932951D55182E73A0A7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1F590934A9E2392C18581C7C /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		1F59098DFC4B859C84DC2DC0 /* slideDuration.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = slideDuration.json; sourceTree = "<group>"; };
 		1F5909A97DEDC344779B374E /* AvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarView.h; sourceTree = "<group>"; };
 		1F590A32D84EEEBA92A8E7A4 /* Moment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moment.m; sourceTree = "<group>"; };
 		1F590A451DFC04AAEA33F32F /* AvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarView.m; sourceTree = "<group>"; };
+		1F590A6EEEF0241FBAB52E82 /* SingleSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSelectTableViewCell.h; sourceTree = "<group>"; };
+		1F590A7EC79EE7A35E0207E4 /* SettingsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsSection.h; sourceTree = "<group>"; };
 		1F590AC427B3595049BBF180 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
 		1F590B4C3B7FD1B7CA9ED1B8 /* MomentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentsViewController.m; sourceTree = "<group>"; };
+		1F590B66F3D6E2E0E4C13F24 /* slideCount.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = slideCount.json; sourceTree = "<group>"; };
 		1F590BB9C9EBFAEF6BA59C82 /* SlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideView.m; sourceTree = "<group>"; };
 		1F590BCCBB228397E8E7761F /* SlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideView.h; sourceTree = "<group>"; };
 		1F590BDA7D80B949EF4CAB13 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		1F590BFE9AA82F8D5B2398CC /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		1F590C8BB2D7BE1D425160A8 /* SettingsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSection.m; sourceTree = "<group>"; };
 		1F590D0864B29CDB2406DDDF /* MomentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentViewCell.m; sourceTree = "<group>"; };
 		1F590D3D3C2A95F7D3ABA124 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
+		1F590D4B4081AB5163D17B77 /* SettingsField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsField.h; sourceTree = "<group>"; };
+		1F590D8CB6B333F855CEC041 /* KeyValueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValueTableViewCell.h; sourceTree = "<group>"; };
 		1F590DC97DF6974A05ACE13E /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1F590E34EC54081E1062ACC3 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		1F590E77748C5BC1F308D68A /* lookupInterval.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = lookupInterval.json; sourceTree = "<group>"; };
 		1F590EC9F1D46E99D6A23359 /* PresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationViewController.m; sourceTree = "<group>"; };
+		1F590EFB78FF652269DD456A /* KeyValueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValueTableViewCell.m; sourceTree = "<group>"; };
+		1F590F684A5A9AB15E84B38B /* DurationFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DurationFormatter.m; sourceTree = "<group>"; };
 		1F590FBEE708A279558AB5BC /* UIImage+BlurredFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFilter.h"; sourceTree = "<group>"; };
 		1F590FCD062A2DCB3E70B3F8 /* PresentationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationView.h; sourceTree = "<group>"; };
+		455579BD1B25429C009923CD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		457C07381B1E12750035F784 /* Exhibit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exhibit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		457C073C1B1E12750035F784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		457C073D1B1E12760035F784 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -130,6 +171,11 @@
 			isa = PBXGroup;
 			children = (
 				1F5903D8484E2E939BD2E36A /* Fonts */,
+				1F5905EB8028C1A1852CA2FB /* settings.json */,
+				455579BD1B25429C009923CD /* Localizable.strings */,
+				1F590B66F3D6E2E0E4C13F24 /* slideCount.json */,
+				1F59098DFC4B859C84DC2DC0 /* slideDuration.json */,
+				1F590E77748C5BC1F308D68A /* lookupInterval.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,6 +197,15 @@
 				1F590BDA7D80B949EF4CAB13 /* Lato-SemiboldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1F59047D9F0262B28BD19CDD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1F5902B08AC002B3E21728F8 /* SettingsController.m */,
+				1F590934A9E2392C18581C7C /* SettingsController.h */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		1F5904D4B7C8563BFFA4BB03 /* Additions */ = {
@@ -177,8 +232,18 @@
 			isa = PBXGroup;
 			children = (
 				1F590D7B28FF40EF8AA97492 /* Slideshow */,
+				1F59047D9F0262B28BD19CDD /* Settings */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		1F5907107023340BF50CA208 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				1F5905BB2CFE6A12C8DDC908 /* OverviewViewController.m */,
+				1F5902B1916F80200FFDA08C /* OverviewViewController.h */,
+			);
+			path = Overview;
 			sourceTree = "<group>";
 		};
 		1F59087EF2C6EDFBFC413707 /* Presentation */ = {
@@ -194,6 +259,31 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		1F59098158B081C243B2B1E8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1F590EFB78FF652269DD456A /* KeyValueTableViewCell.m */,
+				1F590D8CB6B333F855CEC041 /* KeyValueTableViewCell.h */,
+				1F5902F0DC551CA6ACA6F87A /* SingleSelectTableViewCell.m */,
+				1F590A6EEEF0241FBAB52E82 /* SingleSelectTableViewCell.h */,
+				1F5901C3F7589F9477C4538C /* BaseSettingsTableViewCell.m */,
+				1F59026F12EE1EE13E9D334F /* BaseSettingsTableViewCell.h */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1F590B9EFB0CD7F1E5F4BD0B /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				1F5904DAF91D786443BC8069 /* Formatting.h */,
+				1F590F684A5A9AB15E84B38B /* DurationFormatter.m */,
+				1F59027CDDD6503D6B54D965 /* DurationFormatter.h */,
+				1F590108AAC343965AD85E23 /* IntegerFormatter.m */,
+				1F590435C9062005B1C26D7C /* IntegerFormatter.h */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
 		1F590D7B28FF40EF8AA97492 /* Slideshow */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,13 +293,28 @@
 			path = Slideshow;
 			sourceTree = "<group>";
 		};
+		1F590EF3CABD1914B3F6A2AC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1F59098158B081C243B2B1E8 /* Cells */,
+				1F5901FBD8D78E74AC76969E /* SettingsViewController.m */,
+				1F590932951D55182E73A0A7 /* SettingsViewController.h */,
+				1F590B9EFB0CD7F1E5F4BD0B /* Formatters */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		1F590F94ABEC950CBBC9ECDD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1F59006D58346A8B97D9346E /* Configuration.m */,
-				1F5901A2032FFC9DE41A0640 /* Configuration.h */,
+				1F59006D58346A8B97D9346E /* Settings.m */,
+				1F5901A2032FFC9DE41A0640 /* Settings.h */,
 				1F590A32D84EEEBA92A8E7A4 /* Moment.m */,
 				1F5900B073968DF9E76D1084 /* Moment.h */,
+				1F590C8BB2D7BE1D425160A8 /* SettingsSection.m */,
+				1F590A7EC79EE7A35E0207E4 /* SettingsSection.h */,
+				1F5908ED8E5B1BA7E4F11E1B /* SettingsField.m */,
+				1F590D4B4081AB5163D17B77 /* SettingsField.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +389,8 @@
 				1F5905A8E64C8B40D6BEB045 /* Moments */,
 				1F59087EF2C6EDFBFC413707 /* Presentation */,
 				1F5900A0A8A6D0B3A9DDA96B /* Avatar */,
+				1F590EF3CABD1914B3F6A2AC /* Settings */,
+				1F5907107023340BF50CA208 /* Overview */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -410,7 +517,12 @@
 				1F590BB85DEAB242D56F7F1A /* Lato-ThinItalic.ttf in Resources */,
 				1F5901E0519A9A8D812EC0E4 /* Lato-LightItalic.ttf in Resources */,
 				1F590CF446CFA7B78F94678C /* Lato-MediumItalic.ttf in Resources */,
+				455579BE1B25429C009923CD /* Localizable.strings in Resources */,
 				1F59049227AD4BEC7836CE9A /* Lato-SemiboldItalic.ttf in Resources */,
+				1F590165FAE32D063740A11D /* settings.json in Resources */,
+				1F590669F1BD40C7589B80E6 /* slideCount.json in Resources */,
+				1F590E3EB9D859E75100B631 /* slideDuration.json in Resources */,
+				1F590286CFE639A1C62CAF2B /* lookupInterval.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,12 +580,22 @@
 				1F5907383CD288BC6A913D85 /* PresentationView.m in Sources */,
 				1F59052044A0D7D191D53B9E /* SlideshowController.m in Sources */,
 				1F59075147C6D82D61560397 /* MomentsViewController.m in Sources */,
-				1F590F8AA9737B6E111C3664 /* Configuration.m in Sources */,
+				1F590F8AA9737B6E111C3664 /* Settings.m in Sources */,
 				1F590D071DFDBE1AD4999747 /* Moment.m in Sources */,
 				1F5902FC86102945E7EC5A3C /* UIImage+BlurredFilter.m in Sources */,
 				1F590D6B8920A0EC0877F385 /* SlideView.m in Sources */,
 				1F590653EAE37CD105664542 /* AvatarView.m in Sources */,
 				1F590F42B43CFBECFF8DD577 /* MomentViewCell.m in Sources */,
+				1F59034C9C9CD60D2E69EF8C /* KeyValueTableViewCell.m in Sources */,
+				1F590D1C2B5FAF67B09371DD /* SettingsViewController.m in Sources */,
+				1F5907F053AB779BC7B540A6 /* OverviewViewController.m in Sources */,
+				1F59025C065C9D355AF44F9A /* DurationFormatter.m in Sources */,
+				1F59062F5AD40C77FBA6A388 /* IntegerFormatter.m in Sources */,
+				1F590DD2C65743AA45F98707 /* SingleSelectTableViewCell.m in Sources */,
+				1F590FD3BB631E59C4EDCD54 /* BaseSettingsTableViewCell.m in Sources */,
+				1F59096A96F8CD56986953BD /* SettingsController.m in Sources */,
+				1F590B10CE4D7F3757E589C7 /* SettingsSection.m in Sources */,
+				1F590CA3C3EDE82660200B2E /* SettingsField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

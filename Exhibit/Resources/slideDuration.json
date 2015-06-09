@@ -1,0 +1,48 @@
+{
+	"title": "settings_slide_duration_title",
+	"linkedValue": "slideDuration",
+	"sections":
+	[
+		{
+			"header": "",
+			"fields":
+			[
+				{
+					"type": "singleSelect",
+					"value": 4,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 5,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 6,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 7,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 8,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 9,
+					"formatter":"DurationFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 10,
+					"formatter":"DurationFormatter"
+				}
+			]
+		}
+	]
+}

@@ -3,12 +3,13 @@
 // Copyright (c) 2015 Simon de Carufel. All rights reserved.
 //
 
-#import "Configuration.h"
+#import "Settings.h"
 
-@interface Configuration ()
+@interface Settings ()
 @end
 
-@implementation Configuration
+@implementation Settings
+
 - (void)encodeWithCoder:(NSCoder *)coder
 {
     [coder encodeObject:self.organizationID forKey:@"organizationID"];

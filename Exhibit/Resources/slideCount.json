@@ -1,0 +1,38 @@
+{
+	"title": "settings_slide_count_title",
+	"linkedValue": "slideCount",
+	"sections":
+	[
+		{
+			"header": "",
+			"fields":
+			[
+				{
+					"type": "singleSelect",
+					"value": 10,
+					"formatter":"IntegerFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 25,
+					"formatter":"IntegerFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 50,
+					"formatter":"IntegerFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 75,
+					"formatter":"IntegerFormatter"
+				},
+				{
+					"type": "singleSelect",
+					"value": 100,
+					"formatter":"IntegerFormatter"
+				}
+			]
+		}
+	]
+}

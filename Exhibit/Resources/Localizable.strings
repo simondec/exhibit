@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Exhibit
+
+  Created by Simon de Carufel on 2015-06-07.
+  Copyright (c) 2015 Simon de Carufel. All rights reserved.
+*/
+
+"settings_title" = "Settings";
+"settings_organization_caption" = "Organization ID";
+"settings_slide_count_caption" = "Initial Slide Count";
+"settings_slide_duration_caption" = "Slide Duration";
+"settings_new_moments_interval_caption" = "Fetch Interval";
+
+"settings_slide_count_title" = "Initial Slide Count";
+"settings_slide_duration_title" = "Slide Duration";
+"settings_lookup_interval_title" = "Fetch Interval";
+
+"format_seconds" = "%i Seconds";
+"format_minute" = "%i Minute";
+"format_minutes" = "%i Minutes";
+"format_hour" = "%i Hour";
+"format_hours" = "%i Hours";
