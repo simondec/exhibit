@@ -7,7 +7,7 @@
 */
 
 "settings_title" = "Settings";
-"settings_organization_caption" = "Organization ID";
+"settings_organization_caption" = "Organization";
 "settings_slide_count_caption" = "Initial Slide Count";
 "settings_slide_duration_caption" = "Slide Duration";
 "settings_new_moments_interval_caption" = "Fetch Interval";
@@ -15,6 +15,8 @@
 "settings_slide_count_title" = "Initial Slide Count";
 "settings_slide_duration_title" = "Slide Duration";
 "settings_lookup_interval_title" = "Fetch Interval";
+
+"settings_organization_section_header" = "Choose An organization";
 
 "format_seconds" = "%i Seconds";
 "format_minute" = "%i Minute";

@@ -12,4 +12,5 @@
 - (void)setCaption:(NSString *)caption;
 - (void)setFormattedValue:(NSString *)value;
 - (void)setAsSelected:(BOOL)selected;
+- (BOOL)valueIsEqual:(id)value;
 @end

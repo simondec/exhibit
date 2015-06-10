@@ -5,10 +5,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "BaseSettingsViewController.h"
 
 @class Settings;
 
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : BaseSettingsViewController
 - (instancetype)initWithLayoutFileName:(NSString *)fileName settings:(Settings *)settings;
 @end

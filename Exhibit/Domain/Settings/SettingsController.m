@@ -68,4 +68,21 @@ static NSString *const SettingsLinkedValueKey = @"linkedValue";
 {
     return self.settingsSections[sectionIndex];
 }
+
+- (void)performOperations:(void (^)(BOOL didPerformOperations, NSError *error))completion
+{
+    // Warning:  This currently only support one operation per settings file.
+    BOOL didPerformOperation = NO;
+    for (SettingsSection *section in self.settingsSections) {
+        if (section.operation) {
+            didPerformOperation = YES;
+            [section performOperation:^(NSError *error) {
+                if (completion) completion(didPerformOperation, error);
+                return;
+            }];
+        }
+    }
+
+    if (completion) completion(NO, nil);
+}
 @end

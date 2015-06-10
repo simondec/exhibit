@@ -10,11 +10,12 @@
 
 
 @interface SettingsField : NSObject
-@property (nonatomic, readonly) NSString *type;
-@property (nonatomic, readonly) NSString *caption;
-@property (nonatomic, readonly) id value;
-@property (nonatomic, readonly) NSString *formattedValue;
-@property (nonatomic, readonly) NSString *target;
+@property (nonatomic) NSString *type;
+@property (nonatomic) NSString *caption;
+@property (nonatomic) id value;
+@property (nonatomic) NSString *formattedValue;
+@property (nonatomic) NSString *targetFile;
+@property (nonatomic) NSString *targetController;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary settings:(Settings *)settings;
 @end

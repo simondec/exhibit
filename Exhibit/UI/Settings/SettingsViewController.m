@@ -13,23 +13,11 @@
 #import "SettingsController.h"
 #import "SettingsSection.h"
 #import "SettingsField.h"
-
-static NSString *const SettingsTitleKey = @"title";
-static NSString *const SettingsSectionsKey = @"sections";
-static NSString *const SettingsLinkedValueKey = @"linkedValue";
-static NSString *const SettingsSectionHeaderKey = @"header";
-static NSString *const SettingsSectionRowsKey = @"fields";
-static NSString *const SettingsSectionRowTypeKey = @"type";
-static NSString *const SettingsSectionRowCaptionKey = @"caption";
-static NSString *const SettingsSectionRowValueKey = @"value";
-static NSString *const SettingsSectionRowLinkedValueKey = @"linkedValue";
-static NSString *const SettingsSectionRowFormatterKey = @"formatter";
-static NSString *const SettingsSectionRowTargetKey = @"target";
+#import "OrganizationSingleSelectTableViewCell.h"
 
 @interface SettingsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) SettingsController *settingsController;
-@property (nonatomic, weak) Settings *settings;
 @property (nonatomic) NSIndexPath *selectedRowIndexPath;
 @end
 
@@ -37,8 +25,8 @@ static NSString *const SettingsSectionRowTargetKey = @"target";
 - (instancetype)initWithLayoutFileName:(NSString *)fileName settings:(Settings *)settings
 {
     if (self = [super init]) {
+        self.settings = settings;
         _settingsController = [[SettingsController alloc] initWithLayoutFileName:fileName settings:settings];
-        _settings = settings;
     }
     return self;
 }
@@ -56,6 +44,7 @@ static NSString *const SettingsSectionRowTargetKey = @"target";
     self.tableView.dataSource = self;
     [self.tableView registerClass:[KeyValueTableViewCell class] forCellReuseIdentifier:@"keyValue"];
     [self.tableView registerClass:[SingleSelectTableViewCell class] forCellReuseIdentifier:@"singleSelect"];
+    [self.tableView registerClass:[OrganizationSingleSelectTableViewCell class] forCellReuseIdentifier:@"organizationSingleSelect"];
     self.title = self.settingsController.settingsTitle;
 }
 
@@ -72,13 +61,14 @@ static NSString *const SettingsSectionRowTargetKey = @"target";
     [self.tableView reloadData];
 }
 
-//------------------------------------------------------------------------------
-#pragma mark - SettingsObserver
-//------------------------------------------------------------------------------
-
-- (void)settingsDidChange
+- (void)viewDidAppear:(BOOL)animated
 {
-    [self.tableView reloadData];
+    [super viewDidAppear:animated];
+    [self.settingsController performOperations:^(BOOL didPerformOperations, NSError *error) {
+        if (didPerformOperations) {
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 //------------------------------------------------------------------------------
@@ -96,6 +86,12 @@ static NSString *const SettingsSectionRowTargetKey = @"target";
     return settingsSection.fields.count;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    SettingsSection *settingsSection = [self.settingsController sectionAtIndex:section];
+    return settingsSection.header;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SettingsSection *settingsSection = [self.settingsController sectionAtIndex:indexPath.section];
@@ -109,7 +105,8 @@ static NSString *const SettingsSectionRowTargetKey = @"target";
 
     if (settingsField.value) {
         id settingsLinkedValue = [self.settingsController linkedValue];
-        if ([settingsField.value isEqual:settingsLinkedValue]) {
+        //[settingsField.value isEqual:settingsLinkedValue]
+        if ([cell valueIsEqual:settingsLinkedValue]) {
             [cell setAsSelected:YES];
             self.selectedRowIndexPath = indexPath;
         }
@@ -123,14 +120,20 @@ static NSString *const SettingsSectionRowTargetKey = @"target";
     SettingsSection *settingsSection = [self.settingsController sectionAtIndex:indexPath.section];
     SettingsField *settingsField = settingsSection.fields[indexPath.row];
 
-    NSString *target = settingsField.target;
-    BaseSettingsTableViewCell *selectedCell = (BaseSettingsTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    NSString *targetFile = settingsField.targetFile;
+    NSString *targetController = settingsField.targetController;
+    BaseSettingsTableViewCell *selectedCell = (BaseSettingsTableViewCell *) [tableView cellForRowAtIndexPath:indexPath];
     id selectedValue = selectedCell.value;
 
-    if (target.length > 0) {
-        SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithLayoutFileName:target settings:self.settings];
+    if (targetFile.length > 0) {
+        SettingsViewController *settingsViewController = [[SettingsViewController alloc] initWithLayoutFileName:targetFile settings:self.settings];
         [self.navigationController pushViewController:settingsViewController animated:YES];
-    } else if (self.settingsController.linkedValue) {
+    } else if (targetController.length > 0) {
+        Class viewControllerClass = NSClassFromString(targetController);
+        id viewController = [viewControllerClass alloc];
+        BaseSettingsViewController *settingsViewController = (BaseSettingsViewController *)[viewController initWithSettings:self.settings];
+        [self.navigationController pushViewController:settingsViewController animated:YES];
+    } else {
         [self.settingsController setLinkedValue:selectedValue];
         if (self.selectedRowIndexPath) {
             BaseSettingsTableViewCell *previousSelectedCell = (BaseSettingsTableViewCell *) [tableView cellForRowAtIndexPath:self.selectedRowIndexPath];

@@ -21,4 +21,9 @@
 {
 }
 
+- (BOOL)valueIsEqual:(id)value
+{
+    return [self.value isEqual:value];
+}
+
 @end

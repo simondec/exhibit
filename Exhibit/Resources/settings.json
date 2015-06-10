@@ -9,8 +9,8 @@
 				{
 					"type": "keyValue",
 					"caption": "settings_organization_caption",
-					"linkedValue": "organizationID",
-					"target": "organization"
+					"linkedValue": "organization.name",
+					"targetFile": "organization"
 				}
 			]
 		},
@@ -23,21 +23,21 @@
 					"caption": "settings_slide_count_caption",
 					"linkedValue": "slideCount",
 					"formatter":"IntegerFormatter",
-					"target": "slideCount"
+					"targetFile": "slideCount"
 				},
 				{
 					"type": "keyValue",
 					"caption": "settings_slide_duration_caption",
 					"linkedValue": "slideDuration",
 					"formatter":"DurationFormatter",
-					"target": "slideDuration"
+					"targetFile": "slideDuration"
 				},
 				{
 					"type": "keyValue",
 					"caption": "settings_new_moments_interval_caption",
 					"linkedValue": "recentMomentsLookupInterval",
 					"formatter":"DurationFormatter",
-					"target": "lookupInterval"
+					"targetFile": "lookupInterval"
 				}
 			]
 		}

@@ -6,8 +6,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class AUBOrganization;
+
 
 @interface Settings : NSObject <NSCoding>
+@property (nonatomic) AUBOrganization *organization;
 @property (nonatomic) NSString *organizationID;
 @property (nonatomic) NSTimeInterval slideDuration;
 @property (nonatomic) NSTimeInterval recentMomentsLookupInterval;

@@ -16,4 +16,5 @@
 - (instancetype)initWithLayoutFileName:(NSString *)fileName settings:(Settings *)settings;
 - (NSInteger)numberOfSections;
 - (SettingsSection *)sectionAtIndex:(NSUInteger)sectionIndex;
+- (void)performOperations:(void (^)(BOOL didPerformOperations, NSError *error))completion;
 @end

@@ -13,6 +13,8 @@
 		1F590286CFE639A1C62CAF2B /* lookupInterval.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F590E77748C5BC1F308D68A /* lookupInterval.json */; };
 		1F5902FC86102945E7EC5A3C /* UIImage+BlurredFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59078D870D907D9E188EA3 /* UIImage+BlurredFilter.m */; };
 		1F59034C9C9CD60D2E69EF8C /* KeyValueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590EFB78FF652269DD456A /* KeyValueTableViewCell.m */; };
+		1F59042F243DCEE66062054E /* FetchOrganizationsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59012E04682A617AC69EBC /* FetchOrganizationsOperation.m */; };
+		1F5904612B3FCBD03E7CEABF /* OrganizationSingleSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5903067CDE9A7A57705E48 /* OrganizationSingleSelectTableViewCell.m */; };
 		1F59049227AD4BEC7836CE9A /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590BDA7D80B949EF4CAB13 /* Lato-SemiboldItalic.ttf */; };
 		1F5904A39FC2385C34CADB1A /* PresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590EC9F1D46E99D6A23359 /* PresentationViewController.m */; };
 		1F59052044A0D7D191D53B9E /* SlideshowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59060C40BFD66FAEAFA0DA /* SlideshowController.m */; };
@@ -20,9 +22,11 @@
 		1F590653EAE37CD105664542 /* AvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590A451DFC04AAEA33F32F /* AvatarView.m */; };
 		1F590669F1BD40C7589B80E6 /* slideCount.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F590B66F3D6E2E0E4C13F24 /* slideCount.json */; };
 		1F59066E6B9F12BFF1D75826 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590E34EC54081E1062ACC3 /* Lato-Light.ttf */; };
+		1F590723CC9C0616A4A039FC /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590FE94767CB5ABBE53ACA /* MessageTableViewCell.m */; };
 		1F5907383CD288BC6A913D85 /* PresentationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590602051A88B409BD639C /* PresentationView.m */; };
 		1F59075147C6D82D61560397 /* MomentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590B4C3B7FD1B7CA9ED1B8 /* MomentsViewController.m */; };
 		1F5907F053AB779BC7B540A6 /* OverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5905BB2CFE6A12C8DDC908 /* OverviewViewController.m */; };
+		1F59081CFCFC048521ABC47C /* BaseSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590119A47860C8B0FB2177 /* BaseSettingsViewController.m */; };
 		1F5908D0F686A9FA337E9A75 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590D3D3C2A95F7D3ABA124 /* Lato-Medium.ttf */; };
 		1F59096A96F8CD56986953BD /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5902B08AC002B3E21728F8 /* SettingsController.m */; };
 		1F5909B5BCD5C296008AE6D2 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5902EABFC45C1AEE3FEBAB /* Lato-Bold.ttf */; };
@@ -31,6 +35,7 @@
 		1F590BA96964C4C52F0EF38C /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5905EE5C29FC8FBCAE090E /* Lato-Regular.ttf */; };
 		1F590BB85DEAB242D56F7F1A /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590572ED87ADEC71216039 /* Lato-ThinItalic.ttf */; };
 		1F590BBB92A7694A0CE4D044 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590BFE9AA82F8D5B2398CC /* Lato-Thin.ttf */; };
+		1F590BC4ADE659F14B959568 /* OrganizationSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590F4339614C4F278153F3 /* OrganizationSettingsViewController.m */; };
 		1F590CA3C3EDE82660200B2E /* SettingsField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5908ED8E5B1BA7E4F11E1B /* SettingsField.m */; };
 		1F590CF446CFA7B78F94678C /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590DC97DF6974A05ACE13E /* Lato-MediumItalic.ttf */; };
 		1F590D071DFDBE1AD4999747 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590A32D84EEEBA92A8E7A4 /* Moment.m */; };
@@ -39,6 +44,7 @@
 		1F590DD2C65743AA45F98707 /* SingleSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5902F0DC551CA6ACA6F87A /* SingleSelectTableViewCell.m */; };
 		1F590E3EB9D859E75100B631 /* slideDuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F59098DFC4B859C84DC2DC0 /* slideDuration.json */; };
 		1F590F42B43CFBECFF8DD577 /* MomentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590D0864B29CDB2406DDDF /* MomentViewCell.m */; };
+		1F590F619DF99E24A6A49233 /* organization.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F59015C9AA60A3B5AD9E474 /* organization.json */; };
 		1F590F8AA9737B6E111C3664 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59006D58346A8B97D9346E /* Settings.m */; };
 		1F590FD3BB631E59C4EDCD54 /* BaseSettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5901C3F7589F9477C4538C /* BaseSettingsTableViewCell.m */; };
 		1F590FF1C4B4275E7FAC594C /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F59080DEF06B3546F80B828 /* Lato-Semibold.ttf */; };
@@ -68,10 +74,14 @@
 		1F59006D58346A8B97D9346E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		1F5900B073968DF9E76D1084 /* Moment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moment.h; sourceTree = "<group>"; };
 		1F590108AAC343965AD85E23 /* IntegerFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegerFormatter.m; sourceTree = "<group>"; };
+		1F590119A47860C8B0FB2177 /* BaseSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSettingsViewController.m; sourceTree = "<group>"; };
+		1F59012E04682A617AC69EBC /* FetchOrganizationsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchOrganizationsOperation.m; sourceTree = "<group>"; };
+		1F59015C9AA60A3B5AD9E474 /* organization.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = organization.json; sourceTree = "<group>"; };
 		1F5901A2032FFC9DE41A0640 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		1F5901C3F7589F9477C4538C /* BaseSettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSettingsTableViewCell.m; sourceTree = "<group>"; };
 		1F5901D8DB5D28A8654B684C /* PresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationViewController.h; sourceTree = "<group>"; };
 		1F5901FBD8D78E74AC76969E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		1F59020590770BAB9875B0D6 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		1F590227F5B736B585B9CD85 /* MomentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentsViewController.h; sourceTree = "<group>"; };
 		1F59026F12EE1EE13E9D334F /* BaseSettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSettingsTableViewCell.h; sourceTree = "<group>"; };
 		1F59027CDDD6503D6B54D965 /* DurationFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DurationFormatter.h; sourceTree = "<group>"; };
@@ -79,6 +89,7 @@
 		1F5902B1916F80200FFDA08C /* OverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewViewController.h; sourceTree = "<group>"; };
 		1F5902EABFC45C1AEE3FEBAB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		1F5902F0DC551CA6ACA6F87A /* SingleSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSelectTableViewCell.m; sourceTree = "<group>"; };
+		1F5903067CDE9A7A57705E48 /* OrganizationSingleSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationSingleSelectTableViewCell.m; sourceTree = "<group>"; };
 		1F590435C9062005B1C26D7C /* IntegerFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerFormatter.h; sourceTree = "<group>"; };
 		1F5904A9F3626A26BAC270B1 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		1F5904D8E9B7D5F0F91F58EF /* MomentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewCell.h; sourceTree = "<group>"; };
@@ -91,6 +102,7 @@
 		1F59060C40BFD66FAEAFA0DA /* SlideshowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideshowController.m; sourceTree = "<group>"; };
 		1F590630009C038991552D2C /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		1F59078D870D907D9E188EA3 /* UIImage+BlurredFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFilter.m"; sourceTree = "<group>"; };
+		1F59080321A84AACA73C399B /* BaseSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSettingsViewController.h; sourceTree = "<group>"; };
 		1F59080DEF06B3546F80B828 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		1F590866B0E612A1CA5579CD /* SlideshowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideshowController.h; sourceTree = "<group>"; };
 		1F5908ED8E5B1BA7E4F11E1B /* SettingsField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsField.m; sourceTree = "<group>"; };
@@ -110,18 +122,24 @@
 		1F590BDA7D80B949EF4CAB13 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		1F590BFE9AA82F8D5B2398CC /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		1F590C8BB2D7BE1D425160A8 /* SettingsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSection.m; sourceTree = "<group>"; };
+		1F590CB54A335322F7E10708 /* OrganizationSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationSettingsViewController.h; sourceTree = "<group>"; };
 		1F590D0864B29CDB2406DDDF /* MomentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentViewCell.m; sourceTree = "<group>"; };
 		1F590D3D3C2A95F7D3ABA124 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		1F590D4B4081AB5163D17B77 /* SettingsField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsField.h; sourceTree = "<group>"; };
+		1F590D73295AF9F3A76D4077 /* SettingsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOperation.h; sourceTree = "<group>"; };
+		1F590D811524B049C99AD524 /* OrganizationSingleSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationSingleSelectTableViewCell.h; sourceTree = "<group>"; };
 		1F590D8CB6B333F855CEC041 /* KeyValueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValueTableViewCell.h; sourceTree = "<group>"; };
 		1F590DC97DF6974A05ACE13E /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1F590E34EC54081E1062ACC3 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		1F590E77748C5BC1F308D68A /* lookupInterval.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = lookupInterval.json; sourceTree = "<group>"; };
+		1F590EC11C656B0F53839895 /* FetchOrganizationsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchOrganizationsOperation.h; sourceTree = "<group>"; };
 		1F590EC9F1D46E99D6A23359 /* PresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationViewController.m; sourceTree = "<group>"; };
 		1F590EFB78FF652269DD456A /* KeyValueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValueTableViewCell.m; sourceTree = "<group>"; };
+		1F590F4339614C4F278153F3 /* OrganizationSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationSettingsViewController.m; sourceTree = "<group>"; };
 		1F590F684A5A9AB15E84B38B /* DurationFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DurationFormatter.m; sourceTree = "<group>"; };
 		1F590FBEE708A279558AB5BC /* UIImage+BlurredFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFilter.h"; sourceTree = "<group>"; };
 		1F590FCD062A2DCB3E70B3F8 /* PresentationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationView.h; sourceTree = "<group>"; };
+		1F590FE94767CB5ABBE53ACA /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		455579BD1B25429C009923CD /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		457C07381B1E12750035F784 /* Exhibit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exhibit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		457C073C1B1E12750035F784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -176,6 +194,7 @@
 				1F590B66F3D6E2E0E4C13F24 /* slideCount.json */,
 				1F59098DFC4B859C84DC2DC0 /* slideDuration.json */,
 				1F590E77748C5BC1F308D68A /* lookupInterval.json */,
+				1F59015C9AA60A3B5AD9E474 /* organization.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -204,6 +223,7 @@
 			children = (
 				1F5902B08AC002B3E21728F8 /* SettingsController.m */,
 				1F590934A9E2392C18581C7C /* SettingsController.h */,
+				1F5907D1D5FC9D7F2582E794 /* Operations */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -246,6 +266,16 @@
 			path = Overview;
 			sourceTree = "<group>";
 		};
+		1F5907D1D5FC9D7F2582E794 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				1F590D73295AF9F3A76D4077 /* SettingsOperation.h */,
+				1F59012E04682A617AC69EBC /* FetchOrganizationsOperation.m */,
+				1F590EC11C656B0F53839895 /* FetchOrganizationsOperation.h */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		1F59087EF2C6EDFBFC413707 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +298,10 @@
 				1F590A6EEEF0241FBAB52E82 /* SingleSelectTableViewCell.h */,
 				1F5901C3F7589F9477C4538C /* BaseSettingsTableViewCell.m */,
 				1F59026F12EE1EE13E9D334F /* BaseSettingsTableViewCell.h */,
+				1F5903067CDE9A7A57705E48 /* OrganizationSingleSelectTableViewCell.m */,
+				1F590D811524B049C99AD524 /* OrganizationSingleSelectTableViewCell.h */,
+				1F590FE94767CB5ABBE53ACA /* MessageTableViewCell.m */,
+				1F59020590770BAB9875B0D6 /* MessageTableViewCell.h */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -300,6 +334,10 @@
 				1F5901FBD8D78E74AC76969E /* SettingsViewController.m */,
 				1F590932951D55182E73A0A7 /* SettingsViewController.h */,
 				1F590B9EFB0CD7F1E5F4BD0B /* Formatters */,
+				1F590F4339614C4F278153F3 /* OrganizationSettingsViewController.m */,
+				1F590CB54A335322F7E10708 /* OrganizationSettingsViewController.h */,
+				1F590119A47860C8B0FB2177 /* BaseSettingsViewController.m */,
+				1F59080321A84AACA73C399B /* BaseSettingsViewController.h */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -523,6 +561,7 @@
 				1F590669F1BD40C7589B80E6 /* slideCount.json in Resources */,
 				1F590E3EB9D859E75100B631 /* slideDuration.json in Resources */,
 				1F590286CFE639A1C62CAF2B /* lookupInterval.json in Resources */,
+				1F590F619DF99E24A6A49233 /* organization.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +635,11 @@
 				1F59096A96F8CD56986953BD /* SettingsController.m in Sources */,
 				1F590B10CE4D7F3757E589C7 /* SettingsSection.m in Sources */,
 				1F590CA3C3EDE82660200B2E /* SettingsField.m in Sources */,
+				1F5904612B3FCBD03E7CEABF /* OrganizationSingleSelectTableViewCell.m in Sources */,
+				1F590BC4ADE659F14B959568 /* OrganizationSettingsViewController.m in Sources */,
+				1F59081CFCFC048521ABC47C /* BaseSettingsViewController.m in Sources */,
+				1F590723CC9C0616A4A039FC /* MessageTableViewCell.m in Sources */,
+				1F59042F243DCEE66062054E /* FetchOrganizationsOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,11 @@
+{
+	"title": "settings_lookup_interval_title",
+	"linkedValue": "organization",
+	"sections":
+	[
+		{
+			"header": "settings_organization_section_header",
+			"operation": "FetchOrganizationsOperation"
+		}
+	]
+}

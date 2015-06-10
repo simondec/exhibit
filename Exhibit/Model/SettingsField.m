@@ -13,7 +13,8 @@ static NSString *const SettingsSectionRowCaptionKey = @"caption";
 static NSString *const SettingsSectionRowValueKey = @"value";
 static NSString *const SettingsSectionRowLinkedValueKey = @"linkedValue";
 static NSString *const SettingsSectionRowFormatterKey = @"formatter";
-static NSString *const SettingsSectionRowTargetKey = @"target";
+static NSString *const SettingsSectionRowTargetFileKey = @"targetFile";
+static NSString *const SettingsSectionRowTargetControllerKey = @"targetController";
 
 @interface SettingsField ()
 @property (nonatomic, weak) Settings *settings;
@@ -42,7 +43,8 @@ static NSString *const SettingsSectionRowTargetKey = @"target";
 
         _linkedValueKeyPath = [dictionary stringForKey:SettingsSectionRowLinkedValueKey];
         _staticValue = dictionary[SettingsSectionRowValueKey];
-        _target = [dictionary stringForKey:SettingsSectionRowTargetKey];
+        _targetFile = [dictionary stringForKey:SettingsSectionRowTargetFileKey];
+        _targetController = [dictionary stringForKey:SettingsSectionRowTargetControllerKey];
     }
     return self;
 }
@@ -57,6 +59,11 @@ static NSString *const SettingsSectionRowTargetKey = @"target";
         value = self.staticValue;
     }
     return value;
+}
+
+- (void)setValue:(id)value
+{
+    self.staticValue = value;
 }
 
 - (NSString *)formattedValue
