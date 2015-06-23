@@ -29,6 +29,7 @@
         [self addSubview:self.backgroundImageView];
 
         self.nwadLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NWADLogoPicto"]];
+        self.nwadLogoImageView.alpha = 0;
         [self addSubview:self.nwadLogoImageView];
 
         self.moveLeft = YES;
@@ -67,6 +68,12 @@
     }
 
     [self performSelector:@selector(presentMoment:) withObject:moment afterDelay:1.0f];
+
+    if (self.nwadLogoImageView.alpha < 1) {
+        [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.nwadLogoImageView.alpha = 1;
+        } completion:nil];
+    }
 }
 
 //------------------------------------------------------------------------------

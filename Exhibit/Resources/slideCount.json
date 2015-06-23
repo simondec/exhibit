@@ -9,22 +9,22 @@
 			[
 				{
 					"type": "singleSelect",
-					"value": 10,
+					"value": 12,
 					"formatter":"IntegerFormatter"
 				},
 				{
 					"type": "singleSelect",
-					"value": 25,
+					"value": 24,
 					"formatter":"IntegerFormatter"
 				},
 				{
 					"type": "singleSelect",
-					"value": 50,
+					"value": 52,
 					"formatter":"IntegerFormatter"
 				},
 				{
 					"type": "singleSelect",
-					"value": 75,
+					"value": 72,
 					"formatter":"IntegerFormatter"
 				},
 				{

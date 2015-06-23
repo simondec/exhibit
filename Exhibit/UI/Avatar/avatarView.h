@@ -8,7 +8,9 @@
 
 
 @interface AvatarView : UIView
+@property (nonatomic) UIImageView *profileImageView;
 - (instancetype)initWithFrame:(CGRect)frame borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 - (instancetype)initWithFrame:(CGRect)frame borderWidth:(CGFloat)borderWidth;
 - (void)setImage:(UIImage *)image;
+- (void)setImageWithURL:(NSURL *)url;
 @end

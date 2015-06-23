@@ -12,6 +12,7 @@
 		1F59025C065C9D355AF44F9A /* DurationFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590F684A5A9AB15E84B38B /* DurationFormatter.m */; };
 		1F590286CFE639A1C62CAF2B /* lookupInterval.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F590E77748C5BC1F308D68A /* lookupInterval.json */; };
 		1F5902FC86102945E7EC5A3C /* UIImage+BlurredFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59078D870D907D9E188EA3 /* UIImage+BlurredFilter.m */; };
+		1F59030F7430DB4A71CCF449 /* RootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590C46662875608AA27374 /* RootView.m */; };
 		1F59034C9C9CD60D2E69EF8C /* KeyValueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590EFB78FF652269DD456A /* KeyValueTableViewCell.m */; };
 		1F59042F243DCEE66062054E /* FetchOrganizationsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59012E04682A617AC69EBC /* FetchOrganizationsOperation.m */; };
 		1F5904612B3FCBD03E7CEABF /* OrganizationSingleSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5903067CDE9A7A57705E48 /* OrganizationSingleSelectTableViewCell.m */; };
@@ -19,6 +20,7 @@
 		1F5904A39FC2385C34CADB1A /* PresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590EC9F1D46E99D6A23359 /* PresentationViewController.m */; };
 		1F59052044A0D7D191D53B9E /* SlideshowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59060C40BFD66FAEAFA0DA /* SlideshowController.m */; };
 		1F59062F5AD40C77FBA6A388 /* IntegerFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590108AAC343965AD85E23 /* IntegerFormatter.m */; };
+		1F59064B32106C93CD62CC8A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590D625719F26AB670D767 /* RootViewController.m */; };
 		1F590653EAE37CD105664542 /* AvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590A451DFC04AAEA33F32F /* AvatarView.m */; };
 		1F590669F1BD40C7589B80E6 /* slideCount.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F590B66F3D6E2E0E4C13F24 /* slideCount.json */; };
 		1F59066E6B9F12BFF1D75826 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590E34EC54081E1062ACC3 /* Lato-Light.ttf */; };
@@ -30,6 +32,7 @@
 		1F5908D0F686A9FA337E9A75 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590D3D3C2A95F7D3ABA124 /* Lato-Medium.ttf */; };
 		1F59096A96F8CD56986953BD /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5902B08AC002B3E21728F8 /* SettingsController.m */; };
 		1F5909B5BCD5C296008AE6D2 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5902EABFC45C1AEE3FEBAB /* Lato-Bold.ttf */; };
+		1F590A4854F6907900992943 /* OverviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590011A4F22D2509BD2AF6 /* OverviewView.m */; };
 		1F590B10CE4D7F3757E589C7 /* SettingsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590C8BB2D7BE1D425160A8 /* SettingsSection.m */; };
 		1F590B2BCB4764C5A9337A63 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590AC427B3595049BBF180 /* Lato-BoldItalic.ttf */; };
 		1F590BA96964C4C52F0EF38C /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5905EE5C29FC8FBCAE090E /* Lato-Regular.ttf */; };
@@ -71,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		0870BAD09C97D02B006F502F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F590011A4F22D2509BD2AF6 /* OverviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewView.m; sourceTree = "<group>"; };
 		1F59006D58346A8B97D9346E /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		1F5900B073968DF9E76D1084 /* Moment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moment.h; sourceTree = "<group>"; };
 		1F590108AAC343965AD85E23 /* IntegerFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegerFormatter.m; sourceTree = "<group>"; };
@@ -87,10 +91,12 @@
 		1F59027CDDD6503D6B54D965 /* DurationFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DurationFormatter.h; sourceTree = "<group>"; };
 		1F5902B08AC002B3E21728F8 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		1F5902B1916F80200FFDA08C /* OverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewViewController.h; sourceTree = "<group>"; };
+		1F5902C3B20B2DCFCAD7C625 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1F5902EABFC45C1AEE3FEBAB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		1F5902F0DC551CA6ACA6F87A /* SingleSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSelectTableViewCell.m; sourceTree = "<group>"; };
 		1F5903067CDE9A7A57705E48 /* OrganizationSingleSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationSingleSelectTableViewCell.m; sourceTree = "<group>"; };
 		1F590435C9062005B1C26D7C /* IntegerFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerFormatter.h; sourceTree = "<group>"; };
+		1F590479CA003285C8B2E3FE /* OverviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewView.h; sourceTree = "<group>"; };
 		1F5904A9F3626A26BAC270B1 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		1F5904D8E9B7D5F0F91F58EF /* MomentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewCell.h; sourceTree = "<group>"; };
 		1F5904DAF91D786443BC8069 /* Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatting.h; sourceTree = "<group>"; };
@@ -121,11 +127,13 @@
 		1F590BCCBB228397E8E7761F /* SlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideView.h; sourceTree = "<group>"; };
 		1F590BDA7D80B949EF4CAB13 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		1F590BFE9AA82F8D5B2398CC /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		1F590C46662875608AA27374 /* RootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootView.m; sourceTree = "<group>"; };
 		1F590C8BB2D7BE1D425160A8 /* SettingsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsSection.m; sourceTree = "<group>"; };
 		1F590CB54A335322F7E10708 /* OrganizationSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationSettingsViewController.h; sourceTree = "<group>"; };
 		1F590D0864B29CDB2406DDDF /* MomentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentViewCell.m; sourceTree = "<group>"; };
 		1F590D3D3C2A95F7D3ABA124 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		1F590D4B4081AB5163D17B77 /* SettingsField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsField.h; sourceTree = "<group>"; };
+		1F590D625719F26AB670D767 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		1F590D73295AF9F3A76D4077 /* SettingsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsOperation.h; sourceTree = "<group>"; };
 		1F590D811524B049C99AD524 /* OrganizationSingleSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrganizationSingleSelectTableViewCell.h; sourceTree = "<group>"; };
 		1F590D8CB6B333F855CEC041 /* KeyValueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValueTableViewCell.h; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 		1F590EC11C656B0F53839895 /* FetchOrganizationsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchOrganizationsOperation.h; sourceTree = "<group>"; };
 		1F590EC9F1D46E99D6A23359 /* PresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationViewController.m; sourceTree = "<group>"; };
 		1F590EFB78FF652269DD456A /* KeyValueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValueTableViewCell.m; sourceTree = "<group>"; };
+		1F590F2183C553C1DA9C015D /* RootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootView.h; sourceTree = "<group>"; };
 		1F590F4339614C4F278153F3 /* OrganizationSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationSettingsViewController.m; sourceTree = "<group>"; };
 		1F590F684A5A9AB15E84B38B /* DurationFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DurationFormatter.m; sourceTree = "<group>"; };
 		1F590FBEE708A279558AB5BC /* UIImage+BlurredFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFilter.h"; sourceTree = "<group>"; };
@@ -183,6 +192,17 @@
 				1F5909A97DEDC344779B374E /* AvatarView.h */,
 			);
 			path = Avatar;
+			sourceTree = "<group>";
+		};
+		1F5900D26D131131FE55B295 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				1F590D625719F26AB670D767 /* RootViewController.m */,
+				1F5902C3B20B2DCFCAD7C625 /* RootViewController.h */,
+				1F590C46662875608AA27374 /* RootView.m */,
+				1F590F2183C553C1DA9C015D /* RootView.h */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 		1F590236540579A8C4CC0103 /* Resources */ = {
@@ -262,6 +282,8 @@
 			children = (
 				1F5905BB2CFE6A12C8DDC908 /* OverviewViewController.m */,
 				1F5902B1916F80200FFDA08C /* OverviewViewController.h */,
+				1F590011A4F22D2509BD2AF6 /* OverviewView.m */,
+				1F590479CA003285C8B2E3FE /* OverviewView.h */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -429,6 +451,7 @@
 				1F5900A0A8A6D0B3A9DDA96B /* Avatar */,
 				1F590EF3CABD1914B3F6A2AC /* Settings */,
 				1F5907107023340BF50CA208 /* Overview */,
+				1F5900D26D131131FE55B295 /* Root */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -640,6 +663,9 @@
 				1F59081CFCFC048521ABC47C /* BaseSettingsViewController.m in Sources */,
 				1F590723CC9C0616A4A039FC /* MessageTableViewCell.m in Sources */,
 				1F59042F243DCEE66062054E /* FetchOrganizationsOperation.m in Sources */,
+				1F590A4854F6907900992943 /* OverviewView.m in Sources */,
+				1F59064B32106C93CD62CC8A /* RootViewController.m in Sources */,
+				1F59030F7430DB4A71CCF449 /* RootView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +791,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Debug;
@@ -779,6 +806,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 			};
 			name = Release;

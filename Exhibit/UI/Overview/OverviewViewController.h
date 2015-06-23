@@ -6,6 +6,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class Settings;
+@protocol OverviewViewControllerDelegate;
+
 
 @interface OverviewViewController : UIViewController
+@property (nonatomic, weak) id <OverviewViewControllerDelegate> delegate;
+- (instancetype)initWithSettings:(Settings *)settings secondaryScreenConnected:(BOOL)connected;
+- (void)setSecondaryScreenConnected:(BOOL)connected;
+@end
+
+@protocol OverviewViewControllerDelegate <NSObject>
+- (void)overviewViewControllerStartSlideshowButtonTapped;
 @end

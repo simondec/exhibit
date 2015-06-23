@@ -66,7 +66,8 @@
     [super viewDidAppear:animated];
     [self.settingsController performOperations:^(BOOL didPerformOperations, NSError *error) {
         if (didPerformOperations) {
-            [self.tableView reloadData];
+            NSIndexSet *sections = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.settingsController.numberOfSections)];
+            [self.tableView reloadSections:sections withRowAnimation:UITableViewRowAnimationFade];
         }
     }];
 }

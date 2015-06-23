@@ -18,6 +18,9 @@
 
 "settings_organization_section_header" = "Choose An organization";
 
+"overview_secondary_screen_connected_info" = "A secondary screen is connected and will be used to display the slideshow.\nThis device will act as a remote, allowing anyone to change the moment currently displayed on screen.";
+"overview_secondary_screen_disconnected_info" = "No secondary screen is detected.  To display the slideshow on a secondary screen, turn on AirPlay with Mirroring enabled.";
+
 "format_seconds" = "%i Seconds";
 "format_minute" = "%i Minute";
 "format_minutes" = "%i Minutes";

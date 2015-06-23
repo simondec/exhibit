@@ -3,6 +3,7 @@
 // Copyright (c) 2015 Simon de Carufel. All rights reserved.
 //
 
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "AvatarView.h"
 #import "UIImage+MCImageGeneration.h"
 #import "UIImage+MCRounded.h"
@@ -10,7 +11,6 @@
 
 @interface AvatarView ()
 @property (nonatomic) UIImageView *ringImageView;
-@property (nonatomic) UIImageView *profileImageView;
 @end
 
 @implementation AvatarView
@@ -39,6 +39,14 @@
 
 - (void)setImage:(UIImage *)image {
     self.profileImageView.image = [image imageWithRoundedCornersRadius:(image.size.width / 2.0f)];
+}
+
+- (void)setImageWithURL:(NSURL *)url {
+    __weak typeof (self) wSelf = self;
+
+    [self.profileImageView sd_setImageWithURL:url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        wSelf.profileImageView.image = [image imageWithRoundedCornersRadius:(image.size.width / 2.0f)];
+    }];
 }
 
 - (void)layoutSubviews {
