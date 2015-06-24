@@ -10,12 +10,11 @@
 #import "OverviewView.h"
 #import "UIImage+MCImageGeneration.h"
 #import "AvatarView.h"
+#import "LogoView.h"
 
 @interface OverviewView ()
 @property (nonatomic) UIImageView *backgroundImageView;
-@property (nonatomic) UIView *logoContainerView;
-@property (nonatomic) UIImageView *nwadImageView;
-@property (nonatomic) UILabel *exhibitLabel;
+@property (nonatomic) LogoView *logoView;
 @property (nonatomic) UIView *organizationContainerView;
 @property (nonatomic) AvatarView *organizationImageView;
 @property (nonatomic) UILabel *organizationName;
@@ -37,17 +36,8 @@
         self.backgroundImageView.alpha = 0.3f;
         [self addSubview:self.backgroundImageView];
 
-        self.logoContainerView = [UIView new];
-        [self addSubview:self.logoContainerView];
-
-        self.nwadImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NWADLogoPicto"]];
-        [self.logoContainerView addSubview:self.nwadImageView];
-
-        self.exhibitLabel = [UILabel new];
-        self.exhibitLabel.text = @"Exhibit";
-        self.exhibitLabel.font = [UIFont fontWithName:@"Lato-Light" size:40];
-        self.exhibitLabel.textColor = [UIColor whiteColor];
-        [self.logoContainerView addSubview:self.exhibitLabel];
+        self.logoView = [LogoView new];
+        [self addSubview:self.logoView];
 
         self.organizationContainerView = [UIView new];
         self.organizationContainerView.alpha = 0;
@@ -113,13 +103,10 @@
     CGSize startSlideshowButtonSize = [self.startSlideshowButton sizeThatFits:CGSizeZero];
     startSlideshowButtonSize.width += 20;
 
-    [self.logoContainerView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsMake(0, 0, 100, 0) size:CGSizeMake(130, 130)];
-
-    [self.nwadImageView mc_setPosition:MCViewPositionTopHCenter withMargins:UIEdgeInsetsZero size:CGSizeMake(70, 70)];
-    [self.exhibitLabel mc_setPosition:MCViewPositionBottomHCenter withMargins:UIEdgeInsetsZero size:[self.exhibitLabel sizeThatFits:CGSizeZero]];
+    [self.logoView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsMake(0, 0, 100, 0) size:[self.logoView sizeThatFits:CGSizeZero]];
 
     [self.organizationContainerView mc_setSize:CGSizeMake(self.mc_width, 200)];
-    self.organizationContainerView.center = self.logoContainerView.center;
+    self.organizationContainerView.center = self.logoView.center;
 
     [self.organizationImageView mc_setPosition:MCViewPositionTopHCenter];
     [self.organizationMomentsCount mc_setPosition:MCViewPositionBottomHCenter withMargins:UIEdgeInsetsZero size:[self.organizationMomentsCount sizeThatFits:CGSizeZero]];
@@ -148,7 +135,7 @@
         [self setNeedsLayout];
 
         [UIView animateWithDuration:0.5f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{
-            self.logoContainerView.alpha = 0;
+            self.logoView.alpha = 0;
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 self.organizationContainerView.alpha = 1;

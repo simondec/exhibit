@@ -10,6 +10,7 @@
 
 @interface PresentationView ()
 @property (nonatomic) CGSize referenceSize;
+@property (nonatomic) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic) UIImageView *backgroundImageView;
 @property (nonatomic) UIImageView *nwadLogoImageView;
 @property (nonatomic) SlideView *currentSlideView;
@@ -22,6 +23,11 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+
+        self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [self.activityIndicatorView setHidesWhenStopped:YES];
+        [self.activityIndicatorView startAnimating];
+        [self addSubview:self.activityIndicatorView];
 
         self.backgroundImageView = [UIImageView new];
         self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -43,6 +49,7 @@
     if (!CGSizeEqualToSize(self.mc_size, self.referenceSize)) {
         self.referenceSize = self.mc_size;
         CGSize backgroundSize = self.mc_size;
+        [self.activityIndicatorView mc_setPosition:MCViewPositionCenters];
         [self.backgroundImageView mc_setPosition:MCViewPositionVCenterLeft withMargins:UIEdgeInsetsZero size:backgroundSize];
         [self.nwadLogoImageView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(40, 40)];
         [self.currentSlideView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:self.mc_size];
@@ -57,6 +64,10 @@
 {
     self.duration = duration;
     self.moveLeft = !self.moveLeft;
+
+    if (self.activityIndicatorView.isAnimating) {
+        [self.activityIndicatorView stopAnimating];
+    }
 
     if (self.currentSlideView) {
         [self.currentSlideView dismissMoment:^{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F59004FA5F503534E81FD35 /* LogoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F59052C3D773AD597CDCD7E /* LogoViewController.m */; };
 		1F590165FAE32D063740A11D /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F5905EB8028C1A1852CA2FB /* settings.json */; };
 		1F5901E0519A9A8D812EC0E4 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590630009C038991552D2C /* Lato-LightItalic.ttf */; };
 		1F59025C065C9D355AF44F9A /* DurationFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590F684A5A9AB15E84B38B /* DurationFormatter.m */; };
@@ -44,6 +45,7 @@
 		1F590CF446CFA7B78F94678C /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590DC97DF6974A05ACE13E /* Lato-MediumItalic.ttf */; };
 		1F590D071DFDBE1AD4999747 /* Moment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590A32D84EEEBA92A8E7A4 /* Moment.m */; };
 		1F590D1C2B5FAF67B09371DD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5901FBD8D78E74AC76969E /* SettingsViewController.m */; };
+		1F590D3683676B840CF0B515 /* LogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5904A660E66881AC68BF43 /* LogoView.m */; };
 		1F590D6B8920A0EC0877F385 /* SlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590BB9C9EBFAEF6BA59C82 /* SlideView.m */; };
 		1F590DD2C65743AA45F98707 /* SingleSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5902F0DC551CA6ACA6F87A /* SingleSelectTableViewCell.m */; };
 		1F590E3EB9D859E75100B631 /* slideDuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F59098DFC4B859C84DC2DC0 /* slideDuration.json */; };
@@ -93,14 +95,17 @@
 		1F5902B08AC002B3E21728F8 /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		1F5902B1916F80200FFDA08C /* OverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewViewController.h; sourceTree = "<group>"; };
 		1F5902C3B20B2DCFCAD7C625 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		1F5902DB21587CE9B3F6F709 /* LogoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoViewController.h; sourceTree = "<group>"; };
 		1F5902EABFC45C1AEE3FEBAB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		1F5902F0DC551CA6ACA6F87A /* SingleSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleSelectTableViewCell.m; sourceTree = "<group>"; };
 		1F5903067CDE9A7A57705E48 /* OrganizationSingleSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrganizationSingleSelectTableViewCell.m; sourceTree = "<group>"; };
 		1F590435C9062005B1C26D7C /* IntegerFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerFormatter.h; sourceTree = "<group>"; };
 		1F590479CA003285C8B2E3FE /* OverviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewView.h; sourceTree = "<group>"; };
+		1F5904A660E66881AC68BF43 /* LogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoView.m; sourceTree = "<group>"; };
 		1F5904A9F3626A26BAC270B1 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		1F5904D8E9B7D5F0F91F58EF /* MomentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewCell.h; sourceTree = "<group>"; };
 		1F5904DAF91D786443BC8069 /* Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatting.h; sourceTree = "<group>"; };
+		1F59052C3D773AD597CDCD7E /* LogoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoViewController.m; sourceTree = "<group>"; };
 		1F590572ED87ADEC71216039 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		1F5905BB2CFE6A12C8DDC908 /* OverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewViewController.m; sourceTree = "<group>"; };
 		1F5905EB8028C1A1852CA2FB /* settings.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = settings.json; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 		1F590934A9E2392C18581C7C /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		1F59098DFC4B859C84DC2DC0 /* slideDuration.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = slideDuration.json; sourceTree = "<group>"; };
 		1F5909A97DEDC344779B374E /* AvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarView.h; sourceTree = "<group>"; };
+		1F590A13FF6F8826C037ED5C /* LogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoView.h; sourceTree = "<group>"; };
 		1F590A32D84EEEBA92A8E7A4 /* Moment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moment.m; sourceTree = "<group>"; };
 		1F590A451DFC04AAEA33F32F /* AvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarView.m; sourceTree = "<group>"; };
 		1F590A6EEEF0241FBAB52E82 /* SingleSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleSelectTableViewCell.h; sourceTree = "<group>"; };
@@ -331,6 +337,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		1F590B9C1E826814075E01C2 /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				1F59052C3D773AD597CDCD7E /* LogoViewController.m */,
+				1F5902DB21587CE9B3F6F709 /* LogoViewController.h */,
+				1F5904A660E66881AC68BF43 /* LogoView.m */,
+				1F590A13FF6F8826C037ED5C /* LogoView.h */,
+			);
+			path = Logo;
+			sourceTree = "<group>";
+		};
 		1F590B9EFB0CD7F1E5F4BD0B /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +472,7 @@
 				1F590EF3CABD1914B3F6A2AC /* Settings */,
 				1F5907107023340BF50CA208 /* Overview */,
 				1F5900D26D131131FE55B295 /* Root */,
+				1F590B9C1E826814075E01C2 /* Logo */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -670,6 +688,8 @@
 				1F590A4854F6907900992943 /* OverviewView.m in Sources */,
 				1F59064B32106C93CD62CC8A /* RootViewController.m in Sources */,
 				1F59030F7430DB4A71CCF449 /* RootView.m in Sources */,
+				1F59004FA5F503534E81FD35 /* LogoViewController.m in Sources */,
+				1F590D3683676B840CF0B515 /* LogoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

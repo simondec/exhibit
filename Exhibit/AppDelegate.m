@@ -17,6 +17,7 @@
 #import "OverviewViewController.h"
 #import "RootViewController.h"
 #import "StorageClient.h"
+#import "LogoViewController.h"
 
 static NSString *const AubergisteClientID = @"893123332c62670ee75b90df3e6378d2cefc85ac84d3e07d63ae37291414bef0";
 static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13762e17843300e87f3ce25eb8c6e434cb61";
@@ -93,6 +94,7 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
         self.externalWindow.backgroundColor = [UIColor blackColor];
         self.externalWindow.screen = secondScreen;
         self.externalWindow.hidden = NO;
+        self.externalWindow.rootViewController = [LogoViewController new];
 
         NSLog(@"External window detected");
 
@@ -150,6 +152,7 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
             self.window.rootViewController = momentsViewController;
             self.externalWindow.rootViewController = self.presentationViewController;
         } else {
+            self.externalWindow.rootViewController = [LogoViewController new];
             [self.rootViewController setSecondaryScreenConnected:YES];
         }
     }
