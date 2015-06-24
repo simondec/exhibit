@@ -9,13 +9,16 @@
 @interface RootView ()
 @property (nonatomic) BOOL viewDidAppearOnce;
 @property (nonatomic) CGSize referenceSize;
+@property (nonatomic) UIUserInterfaceIdiom idiom;
 @end
 
 @implementation RootView
-- (instancetype)initWithFrame:(CGRect)frame
+
+- (instancetype)initWithUserInterfaceIdiom:(UIUserInterfaceIdiom)idiom
 {
-    if (self = [super initWithFrame:frame]) {
+    if (self = [super initWithFrame:CGRectZero]) {
         self.backgroundColor = [UIColor blackColor];
+        self.idiom = idiom;
     }
     return self;
 }
@@ -26,62 +29,72 @@
 
     if (!CGSizeEqualToSize(self.referenceSize, self.mc_size)) {
         self.referenceSize = self.mc_size;
-        [self.leftPaneView mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsZero size:CGSizeMake(320, self.mc_height)];
-        [self.rightPaneView mc_setPosition:MCViewPositionTopRight withMargins:UIEdgeInsetsZero size:CGSizeMake(self.mc_width - 320, self.mc_height)];
+        [self.leftPanelView mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsZero size:CGSizeMake(320, self.mc_height)];
+
+        CGFloat rightPanelWidth = self.mc_width - (self.idiom == UIUserInterfaceIdiomPad ? 320 : 0);
+
+        [self.rightPanelView mc_setPosition:MCViewPositionTopRight withMargins:UIEdgeInsetsZero size:CGSizeMake(rightPanelWidth, self.mc_height)];
     }
 }
 
-- (void)setLeftPaneView:(UIView *)leftPaneView
+- (void)setLeftPanelView:(UIView *)leftPanelView
 {
-    if (self.leftPaneView) {
-        [self.leftPaneView removeFromSuperview];
+    if (self.leftPanelView) {
+        [self.leftPanelView removeFromSuperview];
     }
 
-    _leftPaneView = leftPaneView;
-    [self addSubview:self.leftPaneView];
+    _leftPanelView = leftPanelView;
+    [self addSubview:self.leftPanelView];
 }
 
-- (void)setRightPaneView:(UIView *)rightPaneView
+- (void)setRightPanelView:(UIView *)rightPanelView
 {
-    if (self.rightPaneView) {
-        [self.rightPaneView removeFromSuperview];
+    if (self.rightPanelView) {
+        [self.rightPanelView removeFromSuperview];
     }
 
-    _rightPaneView = rightPaneView;
-    [self addSubview:self.rightPaneView];
+    _rightPanelView = rightPanelView;
+    [self addSubview:self.rightPanelView];
 }
 
 - (void)preparePanelsForDisplay
 {
     if (!self.viewDidAppearOnce) {
-        self.rightPaneView.alpha = 0;
-        self.leftPaneView.transform = CGAffineTransformMakeTranslation(-self.leftPaneView.mc_width, 0);
+        self.rightPanelView.alpha = 0;
+        self.leftPanelView.transform = CGAffineTransformMakeTranslation(-self.leftPanelView.mc_width, 0);
     }
 }
 
-- (void)displayPanels
+- (void)displayLeftPanelWithDelay:(CGFloat)delay
 {
     self.viewDidAppearOnce = YES;
-    [UIView animateWithDuration:0.5f delay:0.5f usingSpringWithDamping:1000 initialSpringVelocity:0 options:0 animations:^{
-        self.leftPaneView.transform = CGAffineTransformIdentity;
+    [UIView animateWithDuration:0.5f delay:delay usingSpringWithDamping:1000 initialSpringVelocity:0 options:0 animations:^{
+        self.leftPanelView.transform = CGAffineTransformIdentity;
     } completion:nil];
-
-    [UIView animateWithDuration:1.0f delay:1.0f options:UIViewAnimationOptionCurveLinear|UIViewAnimationOptionAllowUserInteraction animations:^{
-        self.rightPaneView.alpha = 1;
-    } completion:nil];
-
 }
 
-- (void)hidePanels:(void (^)(void))completion
+- (void)displayRightPanelWithDelay:(CGFloat)delay
+{
+    [UIView animateWithDuration:1.0f delay:delay options:UIViewAnimationOptionCurveLinear|UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.rightPanelView.alpha = 1;
+    } completion:nil];
+}
+
+- (void)hideLeftPanel:(void (^)(void))completion
+{
+    [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.leftPanelView.transform = CGAffineTransformMakeTranslation(-self.leftPanelView.mc_width, 0);
+    } completion:^(BOOL finished) {
+        if (completion) completion();
+    }];
+}
+
+- (void)hideRightPanel:(void (^)(void))completion
 {
     [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.rightPaneView.alpha = 0;
+        self.rightPanelView.alpha = 0;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-            self.leftPaneView.transform = CGAffineTransformMakeTranslation(-self.leftPaneView.mc_width, 0);
-        } completion:^(BOOL finished) {
-            if (completion) completion();
-        }];
+        if (completion) completion();
     }];
 }
 @end

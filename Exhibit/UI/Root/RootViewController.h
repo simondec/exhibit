@@ -17,5 +17,5 @@
 @end
 
 @protocol RootViewControllerDelegate <NSObject>
-- (void)rootViewControllerStartSlideshowButtonTapped;
+- (void)startSlideshowWithSettings:(Settings *)settings;
 @end

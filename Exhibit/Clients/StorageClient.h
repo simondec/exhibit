@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString *const StorageOrganizationKey = @"StorageOrganizationKey";
+static NSString *const StorageSettingsKey = @"StorageSettingsKey";
 
 @interface StorageClient : NSObject
 + (void)putObject:(id)object forKey:(NSString *)key;

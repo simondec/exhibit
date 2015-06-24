@@ -16,6 +16,7 @@
 #import "SettingsViewController.h"
 #import "OverviewViewController.h"
 #import "RootViewController.h"
+#import "StorageClient.h"
 
 static NSString *const AubergisteClientID = @"893123332c62670ee75b90df3e6378d2cefc85ac84d3e07d63ae37291414bef0";
 static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13762e17843300e87f3ce25eb8c6e434cb61";
@@ -36,11 +37,13 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
     
     [application setStatusBarHidden:YES];
 
-    Settings *config = [Settings new];
-    config.organizationID = @"mirego";
-    config.slideDuration = 7;
-    config.slideCount = 52;
-    config.recentMomentsLookupInterval = 60 * 5;
+    Settings *config = [StorageClient objectForKey:StorageSettingsKey];
+    if (!config) {
+        config = [Settings new];
+        config.slideDuration = 7;
+        config.slideCount = 52;
+        config.recentMomentsLookupInterval = 60 * 30;
+    }
 
     self.slideshowController = [[SlideshowController alloc] initWithConfiguration:config];
 
@@ -70,7 +73,7 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
-    return UIInterfaceOrientationMaskLandscape;
+    return UIInterfaceOrientationMaskAll;
 }
 
 //------------------------------------------------------------------------------
@@ -96,8 +99,11 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
     }
 }
 
-- (void)launchSlideshow
+- (void)launchSlideshowWithSettings:(Settings *)settings
 {
+
+    [StorageClient putObject:settings forKey:StorageSettingsKey];
+
     self.presentationViewController = [[PresentationViewController alloc] initWithSlideshowController:self.slideshowController];
 
     if (self.externalWindow) {
@@ -116,10 +122,10 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
 #pragma mark - RootViewControllerDelegateDelegate
 //------------------------------------------------------------------------------
 
-- (void)rootViewControllerStartSlideshowButtonTapped
+- (void)startSlideshowWithSettings:(Settings *)settings
 {
     self.hasStartedSlideshow = YES;
-    [self launchSlideshow];
+    [self launchSlideshowWithSettings:settings];
 }
 
 

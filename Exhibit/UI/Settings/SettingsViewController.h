@@ -8,8 +8,15 @@
 #import "BaseSettingsViewController.h"
 
 @class Settings;
+@protocol SettingsViewControllerDelegate;
 
 
 @interface SettingsViewController : BaseSettingsViewController
+@property (nonatomic, weak) id <SettingsViewControllerDelegate> delegate;
 - (instancetype)initWithLayoutFileName:(NSString *)fileName settings:(Settings *)settings;
+- (void)setCloseButtonVisible:(BOOL)visible;
+@end
+
+@protocol SettingsViewControllerDelegate <NSObject>
+- (void)settingsViewControllerCloseButtonTapped;
 @end

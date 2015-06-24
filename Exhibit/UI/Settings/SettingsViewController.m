@@ -73,6 +73,32 @@
 }
 
 //------------------------------------------------------------------------------
+#pragma mark - Public Methods
+//------------------------------------------------------------------------------
+
+- (void)setCloseButtonVisible:(BOOL)visible
+{
+    UIBarButtonItem *barButtonItem = nil;
+
+    if (visible) {
+        barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeButtonTapped)];
+    }
+
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - Control Events
+//------------------------------------------------------------------------------
+
+- (void)closeButtonTapped
+{
+    if (self.delegate) {
+        [self.delegate settingsViewControllerCloseButtonTapped];
+    }
+}
+
+//------------------------------------------------------------------------------
 #pragma mark - UITableView Delegate & DataSource
 //------------------------------------------------------------------------------
 

@@ -29,6 +29,7 @@ PODS:
     - MGImageUtilities
   - MCUIViewLayout (0.3.4)
   - MGImageUtilities (0.0.1)
+  - MRGArchitect (0.4.2)
   - pop (1.0.7)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - MCUIColorUtils (~> 1.0.0)
   - MCUIImageAdvanced (~> 0.2.5)
   - MCUIViewLayout (~> 0.3.4)
+  - MRGArchitect (from `git@github.com:mirego/MRGArchitect.git`, tag `0.4.2`)
   - pop (~> 1.0)
   - SDWebImage
   - TTTAttributedLabel
@@ -53,6 +55,9 @@ EXTERNAL SOURCES:
     :git: git@github.com:mirego/Aubergiste.git
   MCCollectionTypeSafety:
     :git: https://github.com/mirego/MCCollectionTypeSafety.git
+  MRGArchitect:
+    :git: git@github.com:mirego/MRGArchitect.git
+    :tag: 0.4.2
 
 CHECKOUT OPTIONS:
   Aubergiste:
@@ -61,6 +66,9 @@ CHECKOUT OPTIONS:
   MCCollectionTypeSafety:
     :commit: 0f32fb795debc1a9d1acf524ab42cbebbdedbdb3
     :git: https://github.com/mirego/MCCollectionTypeSafety.git
+  MRGArchitect:
+    :git: git@github.com:mirego/MRGArchitect.git
+    :tag: 0.4.2
 
 SPEC CHECKSUMS:
   Aubergiste: 6ae553502655d40a3aab7e213601500e5afe0f87
@@ -73,6 +81,7 @@ SPEC CHECKSUMS:
   MCUIImageAdvanced: fbc5873532933a17317fa02b45daf715565b8608
   MCUIViewLayout: d74cba371bf831a66ed52412763274b6a04f5835
   MGImageUtilities: 73c885bf04fd7b21b11fbd132606e05200b12bf7
+  MRGArchitect: 73502ea167d0f557db4d80b4fc73be5ef359449e
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277

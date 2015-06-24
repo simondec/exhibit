@@ -17,9 +17,9 @@
         [coder encodeObject:self.organization.dictionaryRepresentation forKey:@"organization"];
     }
 
-    [coder encodeObject:self.organizationID forKey:@"organizationID"];
     [coder encodeDouble:self.slideDuration forKey:@"slideDuration"];
     [coder encodeInteger:self.slideCount forKey:@"slideCount"];
+    [coder encodeDouble:self.recentMomentsLookupInterval forKey:@"recentMomentsLookupInterval"];
 
 }
 
@@ -32,9 +32,9 @@
             self.organization = (AUBOrganization *)[AUBOrganization objectWithDictionary:organizationDict];
         }
 
-        self.organizationID = [coder decodeObjectForKey:@"organizationID"];
         self.slideDuration = [coder decodeDoubleForKey:@"slideDuration"];
         self.slideCount = [coder decodeIntegerForKey:@"slideCount"];
+        self.recentMomentsLookupInterval = [coder decodeDoubleForKey:@"recentMomentsLookupInterval"];
     }
     return self;
 }

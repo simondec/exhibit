@@ -8,9 +8,12 @@
 
 
 @interface RootView : UIView
-@property (nonatomic) UIView *leftPaneView;
-@property (nonatomic) UIView *rightPaneView;
+@property (nonatomic) UIView *leftPanelView;
+@property (nonatomic) UIView *rightPanelView;
+- (instancetype)initWithUserInterfaceIdiom:(UIUserInterfaceIdiom)idiom;
 - (void)preparePanelsForDisplay;
-- (void)displayPanels;
-- (void)hidePanels:(void (^)(void))completion;
+- (void)displayLeftPanelWithDelay:(CGFloat)delay;
+- (void)displayRightPanelWithDelay:(CGFloat)delay;
+- (void)hideLeftPanel:(void (^)(void))completion;
+- (void)hideRightPanel:(void (^)(void))completion;
 @end

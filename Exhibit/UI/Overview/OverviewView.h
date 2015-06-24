@@ -11,7 +11,9 @@
 
 @interface OverviewView : UIView
 @property (nonatomic) UIButton *startSlideshowButton;
+@property (nonatomic) UIButton *configureButton;
 - (void)setOrganization:(AUBOrganization *)organization;
 - (void)setSecondaryScreenConnected:(BOOL)connected;
+- (void)setSecondaryScreenRequired:(BOOL)required;
 - (void)startPanningBackround;
 @end

@@ -10,11 +10,10 @@
 #import "AUBUser.h"
 #import "SDWebImageManager.h"
 #import "AUBMedia.h"
+#import "AUBOrganization.h"
 #import "UIImage+ProportionalFill.h"
 #import "TTTTimeIntervalFormatter.h"
 #import "UIImage+BlurredFilter.h"
-#import "AUBAvatar.h"
-#import "TTTTimeIntervalFormatter.h"
 
 static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 
@@ -103,7 +102,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 - (void)loadMoments
 {
     __weak typeof(self) wSelf = self;
-    [AUBMoment listFromOrganization:self.configuration.organizationID amount:self.configuration.slideCount from:nil completion:^(NSArray *array, NSError *error) {
+    [AUBMoment listFromOrganization:self.configuration.organization.objectID amount:self.configuration.slideCount from:nil completion:^(NSArray *array, NSError *error) {
         @synchronized (wSelf.chronologicalMomentsInfo) {
             wSelf.chronologicalMomentsInfo = [array mutableCopy];
         }
@@ -139,7 +138,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 - (void)loadNewMoments
 {
     __weak typeof(self) wSelf = self;
-    [AUBMoment listFromOrganization:self.configuration.organizationID amount:SlideshowControllerArbitraryNewMomentsFetchCount from:nil completion:^(NSArray *array, NSError *error) {
+    [AUBMoment listFromOrganization:self.configuration.organization.objectID amount:SlideshowControllerArbitraryNewMomentsFetchCount from:nil completion:^(NSArray *array, NSError *error) {
         if (!error && [array count] > 0) {
             AUBMoment *previousLastMoment = wSelf.chronologicalMomentsInfo.firstObject;
             NSUInteger previousLastMomentIndex = [array indexOfObjectPassingTest:^BOOL(AUBMoment *moment, NSUInteger idx, BOOL *stop) {
@@ -232,7 +231,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
         self.nextRandomizedMomentIndex = 0;
     }
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_TARGET_QUEUE_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         [self prepareNextMoment];
     });
 }

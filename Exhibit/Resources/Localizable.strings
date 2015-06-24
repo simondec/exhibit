@@ -20,6 +20,9 @@
 
 "overview_secondary_screen_connected_info" = "A secondary screen is connected and will be used to display the slideshow.\nThis device will act as a remote, allowing anyone to change the moment currently displayed on screen.";
 "overview_secondary_screen_disconnected_info" = "No secondary screen is detected.  To display the slideshow on a secondary screen, turn on AirPlay with Mirroring enabled.";
+"overview_secondary_screen_required_disconnected_info" = "A secondary screen is required to display the slideshow.  To use a seconday screen, turn on AirPlay with Mirroring enabled.";
+"overview_configure_button" = "Configure";
+"overview_start_slideshow" = "Start slideshow";
 
 "format_seconds" = "%i Seconds";
 "format_minute" = "%i Minute";

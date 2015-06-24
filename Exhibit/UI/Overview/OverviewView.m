@@ -21,6 +21,9 @@
 @property (nonatomic) UILabel *organizationName;
 @property (nonatomic) UILabel *organizationMomentsCount;
 @property (nonatomic) UILabel *secondaryScreenInfoLabel;
+@property (nonatomic) BOOL secondaryScreenConnected;
+@property (nonatomic) BOOL secondaryScreenRequired;
+@property (nonatomic) BOOL organizationSet;
 @end
 
 @implementation OverviewView
@@ -71,7 +74,7 @@
         [self addSubview:self.secondaryScreenInfoLabel];
 
         self.startSlideshowButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.startSlideshowButton setTitle:@"Start Slideshow" forState:UIControlStateNormal];
+        [self.startSlideshowButton setTitle:NSLocalizedString(@"overview_start_slideshow", nil) forState:UIControlStateNormal];
         [self.startSlideshowButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.startSlideshowButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [self.startSlideshowButton setBackgroundImage:[UIImage mc_generateImageOfSize:CGSizeMake(2, 2) color:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
@@ -82,6 +85,19 @@
         self.startSlideshowButton.enabled = NO;
         self.startSlideshowButton.alpha = 0.5f;
         [self addSubview:self.startSlideshowButton];
+
+        self.configureButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.configureButton setTitle:NSLocalizedString(@"overview_configure_button", nil) forState:UIControlStateNormal];
+        [self.configureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.configureButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [self.configureButton setBackgroundImage:[UIImage mc_generateImageOfSize:CGSizeMake(2, 2) color:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
+        self.configureButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        self.configureButton.layer.borderWidth = 1;
+        self.configureButton.layer.cornerRadius = 5.0f;
+        self.configureButton.clipsToBounds = YES;
+        self.configureButton.hidden = YES;
+        [self addSubview:self.configureButton];
+
     }
     return self;
 }
@@ -111,13 +127,21 @@
 
     [self.startSlideshowButton mc_setPosition:MCViewPositionBottomHCenter withMargins:UIEdgeInsetsMake(0, 0, 40, 0) size:startSlideshowButtonSize];
 
-    CGFloat secondaryScreenInfoLabelMaxWidth = self.mc_width - 200;
-    [self.secondaryScreenInfoLabel mc_setRelativePosition:MCViewRelativePositionAboveCentered toView:self.startSlideshowButton withMargins:UIEdgeInsetsMake(0, 0, 40, 0) size:[self.secondaryScreenInfoLabel sizeThatFits:CGSizeMake(secondaryScreenInfoLabelMaxWidth, 0)]];
+    UIView *secondaryScreenInfoReferralView = self.startSlideshowButton;
+
+    if (!self.configureButton.hidden) {
+        [self.configureButton mc_setRelativePosition:MCViewRelativePositionAboveCentered toView:self.startSlideshowButton withMargins:UIEdgeInsetsMake(0, 0, 10, 0) size:startSlideshowButtonSize];
+        secondaryScreenInfoReferralView = self.configureButton;
+    }
+
+    CGFloat secondaryScreenInfoLabelMaxWidth = self.mc_width * 0.8f;
+    [self.secondaryScreenInfoLabel mc_setRelativePosition:MCViewRelativePositionAboveCentered toView:secondaryScreenInfoReferralView withMargins:UIEdgeInsetsMake(0, 0, 40, 0) size:[self.secondaryScreenInfoLabel sizeThatFits:CGSizeMake(secondaryScreenInfoLabelMaxWidth, 0)]];
 }
 
 - (void)setOrganization:(AUBOrganization *)organization
 {
     if (organization) {
+        self.organizationSet = YES;
         [self.organizationImageView setImageWithURL:organization.avatar.large];
         self.organizationName.text = organization.name;
         self.organizationMomentsCount.text = [NSString stringWithFormat:@"(%i moments)", organization.momentsCount];
@@ -128,8 +152,7 @@
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 self.organizationContainerView.alpha = 1;
-                self.startSlideshowButton.alpha = 1;
-                self.startSlideshowButton.enabled = YES;
+                [self updateSecondaryScreenInfoLabel];
             } completion:nil];
         }];
     }
@@ -137,11 +160,15 @@
 
 - (void)setSecondaryScreenConnected:(BOOL)connected
 {
-    [self setNeedsLayout];
-    NSString *stringKey = connected ? @"overview_secondary_screen_connected_info" : @"overview_secondary_screen_disconnected_info";
-    [UIView transitionWithView:self.secondaryScreenInfoLabel duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        self.secondaryScreenInfoLabel.text = NSLocalizedString(stringKey, nil);
-    } completion:nil];
+    _secondaryScreenConnected = connected;
+    [self updateSecondaryScreenInfoLabel];
+
+}
+
+- (void)setSecondaryScreenRequired:(BOOL)required
+{
+    _secondaryScreenRequired = required;
+    [self updateSecondaryScreenInfoLabel];
 }
 
 //------------------------------------------------------------------------------
@@ -161,5 +188,18 @@
     panningAnim.autoreverses = YES;
     panningAnim.repeatCount = MAXFLOAT;
     [self.backgroundImageView.layer addAnimation:panningAnim forKey:@"panning"];
+}
+
+- (void)updateSecondaryScreenInfoLabel
+{
+    [self setNeedsLayout];
+    NSString *disconnectedSecondaryScreenStringKey = (self.secondaryScreenRequired ? @"overview_secondary_screen_required_disconnected_info" : @"overview_secondary_screen_disconnected_info");
+    NSString *stringKey = (self.secondaryScreenConnected ? @"overview_secondary_screen_connected_info" : disconnectedSecondaryScreenStringKey);
+    [UIView transitionWithView:self.secondaryScreenInfoLabel duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        self.secondaryScreenInfoLabel.text = NSLocalizedString(stringKey, nil);
+    } completion:nil];
+    BOOL enabled = (self.secondaryScreenConnected || !self.secondaryScreenRequired) && self.organizationSet;
+    self.startSlideshowButton.alpha = (enabled ? 1 : 0.5f);
+    self.startSlideshowButton.enabled = enabled;
 }
 @end

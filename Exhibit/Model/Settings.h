@@ -11,7 +11,6 @@
 
 @interface Settings : NSObject <NSCoding>
 @property (nonatomic) AUBOrganization *organization;
-@property (nonatomic) NSString *organizationID;
 @property (nonatomic) NSTimeInterval slideDuration;
 @property (nonatomic) NSTimeInterval recentMomentsLookupInterval;
 @property (nonatomic) NSInteger slideCount;

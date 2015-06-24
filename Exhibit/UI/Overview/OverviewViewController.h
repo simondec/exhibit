@@ -14,8 +14,11 @@
 @property (nonatomic, weak) id <OverviewViewControllerDelegate> delegate;
 - (instancetype)initWithSettings:(Settings *)settings secondaryScreenConnected:(BOOL)connected;
 - (void)setSecondaryScreenConnected:(BOOL)connected;
+- (void)setSecondaryScreenRequired:(BOOL)required;
+- (void)setConfigureButtonVisible:(BOOL)visible;
 @end
 
 @protocol OverviewViewControllerDelegate <NSObject>
 - (void)overviewViewControllerStartSlideshowButtonTapped;
+- (void)overviewViewControllerConfigureButtonTapped;
 @end

@@ -70,6 +70,10 @@
     self.momentSize = CGSizeMake(momentHeight, momentHeight);
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+
 //------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //------------------------------------------------------------------------------

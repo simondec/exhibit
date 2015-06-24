@@ -7,6 +7,7 @@
 #import "OverviewView.h"
 #import "Settings.h"
 #import <Aubergiste/AUBOrganization.h>
+#import <MCUIViewLayout/UIView+MCLayout.h>
 
 @interface OverviewViewController ()
 @property (nonatomic, weak) Settings *settings;
@@ -33,7 +34,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
     [self.overviewView.startSlideshowButton addTarget:self action:@selector(startSlideshowButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.overviewView.configureButton addTarget:self action:@selector(configureButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.settings addObserver:self forKeyPath:@"organization" options:NSKeyValueObservingOptionNew context:nil];
     [self.overviewView setOrganization:self.settings.organization];
     [self.overviewView setSecondaryScreenConnected:self.secondaryScreenConnected];
@@ -61,6 +64,16 @@
 {
     _secondaryScreenConnected = connected;
     [self.overviewView setSecondaryScreenConnected:connected];
+}
+
+- (void)setConfigureButtonVisible:(BOOL)visible
+{
+    self.overviewView.configureButton.hidden = !visible;
+}
+
+- (void)setSecondaryScreenRequired:(BOOL)required
+{
+    [self.overviewView setSecondaryScreenRequired:required];
 }
 
 //------------------------------------------------------------------------------
@@ -93,6 +106,13 @@
 {
     if (self.delegate) {
         [self.delegate overviewViewControllerStartSlideshowButtonTapped];
+    }
+}
+
+- (void)configureButtonTapped
+{
+    if (self.delegate) {
+        [self.delegate overviewViewControllerConfigureButtonTapped];
     }
 }
 @end
