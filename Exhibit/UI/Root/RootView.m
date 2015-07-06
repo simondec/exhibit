@@ -97,4 +97,6 @@
         if (completion) completion();
     }];
 }
+
+- (void)drawRect:(CGRect)rect
 @end

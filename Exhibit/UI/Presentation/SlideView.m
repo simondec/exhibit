@@ -82,7 +82,7 @@
 {
     [super layoutSubviews];
 
-    CGFloat momentWidth = [self.architect floatForKey:@"momentWidth"];
+    CGFloat momentWidth = self.mc_height / 2.0f; //[self.architect floatForKey:@"momentWidth"];
     CGFloat momentBorderWidth = [self.architect floatForKey:@"momentBorderWidth"];
 
     if (!CGSizeEqualToSize(self.mc_size, self.referenceSize)) {

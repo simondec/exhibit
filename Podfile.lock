@@ -23,7 +23,7 @@ PODS:
   - GPUImage (0.1.6)
   - ISO8601DateFormatter (0.7)
   - JNWSpringAnimation (0.7.1)
-  - MCCollectionTypeSafety (0.1.1)
+  - MCCollectionTypeSafety (0.1.2)
   - MCUIColorUtils (1.0.0)
   - MCUIImageAdvanced (0.2.7):
     - MGImageUtilities
@@ -34,7 +34,7 @@ PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
-  - TTTAttributedLabel (1.13.3)
+  - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
   - Aubergiste (from `git@github.com:mirego/Aubergiste.git`)
@@ -61,10 +61,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Aubergiste:
-    :commit: b6da39d25513baefc175185cc22177ad4ed57460
+    :commit: 66684d2f3e0ac0d268f9a641a41f1efe50fd5dc8
     :git: git@github.com:mirego/Aubergiste.git
   MCCollectionTypeSafety:
-    :commit: 0f32fb795debc1a9d1acf524ab42cbebbdedbdb3
+    :commit: 79caa8ff5a53251b2e7fc235b76a266e8c3ee58f
     :git: https://github.com/mirego/MCCollectionTypeSafety.git
   MRGArchitect:
     :git: git@github.com:mirego/MRGArchitect.git
@@ -76,7 +76,7 @@ SPEC CHECKSUMS:
   GPUImage: 4675ce4a5370ca92fcea8623b2a08b8f0c51b940
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   JNWSpringAnimation: cd4c2f4464324f63f176c3624ffccf205211a100
-  MCCollectionTypeSafety: e87a82cd481e92b99d34749f111783fbca144644
+  MCCollectionTypeSafety: 6907ffb1d98f75e3bf5a72f52e32e75bef73b3d4
   MCUIColorUtils: 6f11e1702db4ff5419d28cba1e8f7a82dd82d5fe
   MCUIImageAdvanced: fbc5873532933a17317fa02b45daf715565b8608
   MCUIViewLayout: d74cba371bf831a66ed52412763274b6a04f5835
@@ -84,6 +84,6 @@ SPEC CHECKSUMS:
   MRGArchitect: 73502ea167d0f557db4d80b4fc73be5ef359449e
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
 COCOAPODS: 0.37.2

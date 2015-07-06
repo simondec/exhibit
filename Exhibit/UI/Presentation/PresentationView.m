@@ -72,6 +72,7 @@
     if (self.currentSlideView) {
         [self.currentSlideView dismissMoment:^{
             [self.currentSlideView removeFromSuperview];
+            self.currentSlideView = nil;
             [self transitionBackground:moment.blurredBackground duration:duration];
         }];
     } else {
@@ -104,6 +105,8 @@
 
 - (void)presentMoment:(Moment *)moment
 {
+    if (self.currentSlideView) return;
+    
     self.currentSlideView = [[SlideView alloc] initWithMoment:moment moveLeft:self.moveLeft];
     [self addSubview:self.currentSlideView];
     [self.currentSlideView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:self.mc_size];

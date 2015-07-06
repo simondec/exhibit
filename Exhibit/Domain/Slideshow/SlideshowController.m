@@ -138,31 +138,37 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 - (void)loadNewMoments
 {
     __weak typeof(self) wSelf = self;
-    [AUBMoment listFromOrganization:self.configuration.organization.objectID amount:SlideshowControllerArbitraryNewMomentsFetchCount from:nil completion:^(NSArray *array, NSError *error) {
+    [AUBMoment listFromOrganization:self.configuration.organization.objectID amount:self.configuration.slideCount from:nil completion:^(NSArray *array, NSError *error) {
         if (!error && [array count] > 0) {
-            AUBMoment *previousLastMoment = wSelf.chronologicalMomentsInfo.firstObject;
-            NSUInteger previousLastMomentIndex = [array indexOfObjectPassingTest:^BOOL(AUBMoment *moment, NSUInteger idx, BOOL *stop) {
-                *stop = [moment.objectID isEqual:previousLastMoment.objectID];
-                return *stop;
-            }];
 
-            if (previousLastMomentIndex == NSNotFound) {
-                previousLastMomentIndex = array.count - 1;
-            }
+           if (![array isEqualToArray:self.chronologicalMomentsInfo]) {
+               NSUInteger previousMomentsCount = self.chronologicalMomentsInfo.count;
 
-            for (NSUInteger i = 0; i < previousLastMomentIndex; i++) {
-                @synchronized (wSelf.chronologicalMomentsInfo) {
-                    [wSelf.chronologicalMomentsInfo insertObject:array[i] atIndex:i];
-                }
+               NSSet *updatedSet = [NSSet setWithArray:array];
+               NSMutableSet *deletions = [NSMutableSet setWithArray:self.chronologicalMomentsInfo];
+               [deletions minusSet:updatedSet];
 
-                // Randomize its position
-                NSUInteger randomizedIndex = arc4random_uniform(wSelf.randomizedMomentsOrder.count + 1);
-                @synchronized (self.randomizedMomentsOrder) {
-                    [wSelf.randomizedMomentsOrder insertObject:@(i) atIndex:randomizedIndex];
-                }
-            }
+               wSelf.chronologicalMomentsInfo = [array mutableCopy];
 
-            NSLog(@"Did load %i new moments", previousLastMomentIndex);
+               [deletions enumerateObjectsUsingBlock:^(AUBMoment *moment, BOOL *stop) {
+                   [self.momentsData removeObjectForKey:moment.objectID];
+               }];
+
+               for (NSUInteger i = previousMomentsCount; i < self.chronologicalMomentsInfo.count; i++) {
+                   NSUInteger randomizedIndex = arc4random_uniform(self.randomizedMomentsOrder.count + 1);
+                   [self.randomizedMomentsOrder insertObject:@(i) atIndex:randomizedIndex];
+               }
+
+               dispatch_async(dispatch_get_main_queue(), ^{
+                   for (id <SlideshowObserver> observer in self.observers) {
+                       if ([observer respondsToSelector:@selector(didLoadMoments:)]) {
+                           [observer didLoadMoments:wSelf.chronologicalMomentsInfo.count];
+                       }
+                   }
+               });
+
+           }
+
         }
     }];
 }
@@ -215,7 +221,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
     if (successfullyPreparedMoment) {
         moment.blurredBackground = [[moment.media imageScaledToFitSize:CGSizeMake(450, 450)] blurredImage];
         [self.momentsData setObject:moment forKey:momentInfo.objectID];
-        NSLog(@"Moment prepared successfully: %i", index);
+//        NSLog(@"Moment prepared successfully: %i", index);
     }
 
     return successfullyPreparedMoment;
@@ -252,7 +258,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
     }
 
     Moment *moment = [self.momentsData objectForKey:momentInfo.objectID];
-    NSLog(@"Display moment %i", index);
+//    NSLog(@"Display moment %i", index);
 
     for (id <SlideshowObserver> observer in self.observers) {
         if ([observer respondsToSelector:@selector(displayMoment:atChronologicalIndex:)]) {

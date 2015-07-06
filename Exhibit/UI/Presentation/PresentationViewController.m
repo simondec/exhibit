@@ -11,8 +11,6 @@
 @interface PresentationViewController() <PresentationViewDelegate, SlideshowObserver>
 @property (nonatomic) SlideshowController *slideshowController;
 @property (nonatomic) PresentationView *presentationView;
-@property (nonatomic) BOOL presentingMoment;
-@property (nonatomic) Moment *pendingNextMoment;
 @end
 
 @implementation PresentationViewController
@@ -44,6 +42,10 @@
     [self.slideshowController removeSlideshowObserver:self];
 }
 
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+
 //------------------------------------------------------------------------------
 #pragma mark - SlideshowObserver
 //------------------------------------------------------------------------------
@@ -56,12 +58,7 @@
 
 - (void)displayMoment:(Moment *)moment atChronologicalIndex:(NSInteger)index
 {
-    if (!self.presentingMoment) {
-        self.presentingMoment = YES;
-        [self.presentationView transitionToMoment:moment duration:self.slideshowController.slideDuration];
-    } else {
-        self.pendingNextMoment = moment;
-    }
+    [self.presentationView transitionToMoment:moment duration:self.slideshowController.slideDuration];
 }
 
 //------------------------------------------------------------------------------
@@ -70,10 +67,5 @@
 
 - (void)didCompleteTransition
 {
-    self.presentingMoment = NO;
-    if (self.pendingNextMoment) {
-        [self displayMoment:self.pendingNextMoment atChronologicalIndex:0];
-        self.pendingNextMoment = nil;
-    }
 }
 @end

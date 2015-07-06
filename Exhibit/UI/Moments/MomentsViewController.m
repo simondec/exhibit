@@ -16,6 +16,9 @@
 @property (nonatomic) NSTimer *scrollTimer;
 @property (nonatomic) UICollectionViewScrollPosition selectedMomentScrollPosition;
 @property (nonatomic) BOOL didAppear;
+@property (nonatomic) NSInteger currentChronologicalIndex;
+@property (nonatomic) BOOL holdSelection;
+@property (nonatomic) NSTimer *selectionHoldTimer;
 @end
 
 @implementation MomentsViewController
@@ -26,6 +29,7 @@
         _slideshowController = slideshowController;
         _selectedMomentScrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
         _momentSize = CGSizeMake(100, 100);
+        _currentChronologicalIndex = NSNotFound;
     }
     return self;
 }
@@ -98,6 +102,15 @@
     [[NSRunLoop mainRunLoop] addTimer:self.scrollTimer forMode:NSRunLoopCommonModes];
 }
 
+- (void)resetHoldSelection {
+    self.holdSelection = NO;
+
+    if (self.selectionHoldTimer) {
+        [self.selectionHoldTimer invalidate];
+        self.selectionHoldTimer = nil;
+    }
+}
+
 //------------------------------------------------------------------------------
 #pragma mark - UICollectionView delegate & dataSource
 //------------------------------------------------------------------------------
@@ -114,8 +127,14 @@
     return cell;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return !self.holdSelection;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.holdSelection = YES;
     NSArray *selectedRows = [collectionView indexPathsForSelectedItems];
     for (NSIndexPath *i in selectedRows) {
         if (![i isEqual:indexPath]) {
@@ -171,10 +190,21 @@
 - (void)didLoadMoments:(NSInteger)numberOfMoments
 {
     [self.collectionView reloadData];
+    if (self.currentChronologicalIndex != NSNotFound) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentChronologicalIndex inSection:0];
+        [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:self.selectedMomentScrollPosition];
+        NSArray *selectedRows = [self.collectionView indexPathsForSelectedItems];
+        for (NSIndexPath *i in selectedRows) {
+            if (![i isEqual:indexPath]) {
+                [self.collectionView deselectItemAtIndexPath:i animated:NO];
+            }
+        }
+    }
 }
 
 - (void)displayMoment:(Moment *)moment atChronologicalIndex:(NSInteger)index
 {
+    self.currentChronologicalIndex = index;
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
     [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:self.selectedMomentScrollPosition];
     NSArray *selectedRows = [self.collectionView indexPathsForSelectedItems];
@@ -183,5 +213,10 @@
             [self.collectionView deselectItemAtIndexPath:i animated:NO];
         }
     }
+
+    if (self.selectionHoldTimer) {
+        [self.selectionHoldTimer invalidate];
+    }
+    self.selectionHoldTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(resetHoldSelection) userInfo:nil repeats:NO];
 }
 @end
