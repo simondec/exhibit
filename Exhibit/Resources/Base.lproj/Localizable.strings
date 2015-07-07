@@ -18,6 +18,12 @@
 
 "settings_organization_section_header" = "Choose An organization";
 
+"settings_remote_title" = "Remote";
+"settings_remote_caption" = "Remote mode";
+"settings_remote_header_title" = "Enable remote mode on this device when a secondary screen is connected";
+
+"life_at_organization" = "Life @ %@";
+
 "overview_secondary_screen_connected_info" = "A secondary screen is connected and will be used to display the slideshow.\nThis device will act as a remote, allowing anyone to change the moment currently displayed on screen.";
 "overview_secondary_screen_disconnected_info" = "No secondary screen is detected.  To display the slideshow on a secondary screen, turn on AirPlay with Mirroring enabled.";
 "overview_secondary_screen_required_disconnected_info" = "A secondary screen is required to display the slideshow.  To use a seconday screen, turn on AirPlay with Mirroring enabled.";
@@ -29,3 +35,6 @@
 "format_minutes" = "%i Minutes";
 "format_hour" = "%i Hour";
 "format_hours" = "%i Hours";
+
+"boolean_value_yes" = "On";
+"boolean_value_no" = "Off";

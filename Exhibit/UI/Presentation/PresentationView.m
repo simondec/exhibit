@@ -7,12 +7,16 @@
 #import "UIView+MCLayout.h"
 #import "SlideView.h"
 #import "Moment.h"
+#import "AvatarView.h"
+#import "AUBAvatar.h"
+#import <Aubergiste/AUBOrganization.h>
 
 @interface PresentationView ()
 @property (nonatomic) CGSize referenceSize;
 @property (nonatomic) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic) UIImageView *backgroundImageView;
 @property (nonatomic) UIImageView *nwadLogoImageView;
+@property (nonatomic) UILabel *lifeAtLabel;
 @property (nonatomic) SlideView *currentSlideView;
 @property (nonatomic) BOOL moveLeft;
 @property (nonatomic) NSTimeInterval duration;
@@ -31,12 +35,20 @@
 
         self.backgroundImageView = [UIImageView new];
         self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-        self.backgroundImageView.alpha = 0.9f;
+        self.backgroundImageView.alpha = 0.8f;
         [self addSubview:self.backgroundImageView];
 
         self.nwadLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NWADLogoPicto"]];
         self.nwadLogoImageView.alpha = 0;
         [self addSubview:self.nwadLogoImageView];
+
+        self.lifeAtLabel = [UILabel new];
+        self.lifeAtLabel.textColor = [UIColor whiteColor];
+        self.lifeAtLabel.font = [UIFont fontWithName:@"Lato-Medium" size:18];
+        self.lifeAtLabel.shadowColor = [UIColor colorWithWhite:0 alpha:0.2f];
+        self.lifeAtLabel.shadowOffset = CGSizeMake(0, 1);
+        self.lifeAtLabel.alpha = 0;
+        [self addSubview:self.lifeAtLabel];
 
         self.moveLeft = YES;
     }
@@ -54,11 +66,18 @@
         [self.nwadLogoImageView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(40, 40)];
         [self.currentSlideView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:self.mc_size];
     }
+    [self.lifeAtLabel mc_setRelativePosition:MCViewRelativePositionToTheRightCentered toView:self.nwadLogoImageView withMargins:UIEdgeInsetsMake(0, 20, 0, 0) size:[self.lifeAtLabel sizeThatFits:CGSizeZero]];
 }
 
 //------------------------------------------------------------------------------
 #pragma mark - Public Methods
 //------------------------------------------------------------------------------
+
+- (void)setOrganization:(AUBOrganization *)organization
+{
+    self.lifeAtLabel.text = [NSString stringWithFormat:NSLocalizedString(@"life_at_organization", nil), organization.name];
+    [self setNeedsLayout];
+}
 
 - (void)transitionToMoment:(Moment *)moment duration:(NSTimeInterval)duration
 {
@@ -84,6 +103,7 @@
     if (self.nwadLogoImageView.alpha < 1) {
         [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.nwadLogoImageView.alpha = 1;
+            self.lifeAtLabel.alpha = 1;
         } completion:nil];
     }
 }
@@ -117,7 +137,7 @@
         }
     }];
 
-    CGFloat translationX = (self.moveLeft ? -30 : 30);
+    CGFloat translationX = 0.02f * self.mc_width * (self.moveLeft ? -1 : 1);
 
     [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.currentSlideView.transform = CGAffineTransformMakeTranslation(translationX, 0);

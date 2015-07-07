@@ -14,4 +14,5 @@
 @property (nonatomic) NSTimeInterval slideDuration;
 @property (nonatomic) NSTimeInterval recentMomentsLookupInterval;
 @property (nonatomic) NSInteger slideCount;
+@property (nonatomic) BOOL remoteEnabled;
 @end

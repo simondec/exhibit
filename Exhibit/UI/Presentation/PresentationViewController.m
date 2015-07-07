@@ -7,17 +7,20 @@
 #import "SlideshowController.h"
 #import "PresentationView.h"
 #import "Moment.h"
+#import "Settings.h"
 
 @interface PresentationViewController() <PresentationViewDelegate, SlideshowObserver>
 @property (nonatomic) SlideshowController *slideshowController;
+@property (nonatomic) Settings *settings;
 @property (nonatomic) PresentationView *presentationView;
 @end
 
 @implementation PresentationViewController
-- (instancetype)initWithSlideshowController:(SlideshowController *)slideshowController
+- (instancetype)initWithSlideshowController:(SlideshowController *)slideshowController settings:(Settings *)settings
 {
     if (self = [super init]) {
         _slideshowController = slideshowController;
+        _settings = settings;
     }
     return self;
 }
@@ -32,6 +35,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self.presentationView setOrganization:self.settings.organization];
     [self.slideshowController addSlideshowObserver:self];
     [self.slideshowController startSlideshow];
 }

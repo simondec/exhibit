@@ -7,8 +7,9 @@
 #import <UIKit/UIKit.h>
 
 @class SlideshowController;
+@class Settings;
 
 
 @interface PresentationViewController : UIViewController
-- (instancetype)initWithSlideshowController:(SlideshowController *)slideshowController;
+- (instancetype)initWithSlideshowController:(SlideshowController *)slideshowController settings:(Settings *)settings;
 @end

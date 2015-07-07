@@ -1,0 +1,40 @@
+/* 
+  Localizable.strings
+  Exhibit
+
+  Created by Simon de Carufel on 2015-06-07.
+  Copyright (c) 2015 Simon de Carufel. All rights reserved.
+*/
+
+"settings_title" = "Paramètres";
+"settings_organization_caption" = "Organisation";
+"settings_slide_count_caption" = "Nombre de diapos";
+"settings_slide_duration_caption" = "Durée des diapos";
+"settings_new_moments_interval_caption" = "Rafraîchissement";
+
+"settings_slide_count_title" = "Nombre de diapps";
+"settings_slide_duration_title" = "Durée des diapos";
+"settings_lookup_interval_title" = "Rafraîchissement";
+
+"settings_organization_section_header" = "Choisir une organisation";
+
+"settings_remote_title" = "Télécommande";
+"settings_remote_caption" = "Mode télécommande";
+"settings_remote_header_title" = "Activer le mode télécommande sur l'appareil lorsqu'un écran secondaire est connecté";
+
+"life_at_organization" = "La vie @ %@";
+
+"overview_secondary_screen_connected_info" = "Un écran secondaire est connecté et sera utilisé pour afficher le diaporama.\nCet appareil agira comme télécommande, permettant à tous de changer le moment affiché à l'écran.";
+"overview_secondary_screen_disconnected_info" = "Aucun écran secondaire n'est détecté.  Pour afficher le diaporama sur un écran secondaire, activez AirPlay avec l'option Miroir.";
+"overview_secondary_screen_required_disconnected_info" = "Un écran secondaire est requis pour afficher le diaporama.  Pour utiliser un diaporama, activez AirPlay avec l'option Miroir.";
+"overview_configure_button" = "Configurer";
+"overview_start_slideshow" = "Démarrer le diaporama";
+
+"format_seconds" = "%i Secondes";
+"format_minute" = "%i Minute";
+"format_minutes" = "%i Minutes";
+"format_hour" = "%i Heure";
+"format_hours" = "%i Heures";
+
+"boolean_value_yes" = "Actif";
+"boolean_value_no" = "Inactif";

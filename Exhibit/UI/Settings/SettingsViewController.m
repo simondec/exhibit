@@ -14,8 +14,9 @@
 #import "SettingsSection.h"
 #import "SettingsField.h"
 #import "OrganizationSingleSelectTableViewCell.h"
+#import "SwitchTableViewCell.h"
 
-@interface SettingsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SettingsViewController () <UITableViewDelegate, UITableViewDataSource, SettingsTableViewCellDelegate>
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) SettingsController *settingsController;
 @property (nonatomic) NSIndexPath *selectedRowIndexPath;
@@ -45,6 +46,7 @@
     [self.tableView registerClass:[KeyValueTableViewCell class] forCellReuseIdentifier:@"keyValue"];
     [self.tableView registerClass:[SingleSelectTableViewCell class] forCellReuseIdentifier:@"singleSelect"];
     [self.tableView registerClass:[OrganizationSingleSelectTableViewCell class] forCellReuseIdentifier:@"organizationSingleSelect"];
+    [self.tableView registerClass:[SwitchTableViewCell class] forCellReuseIdentifier:@"switch"];
     self.title = self.settingsController.settingsTitle;
 }
 
@@ -132,11 +134,14 @@
 
     if (settingsField.value) {
         id settingsLinkedValue = [self.settingsController linkedValue];
-        //[settingsField.value isEqual:settingsLinkedValue]
         if ([cell valueIsEqual:settingsLinkedValue]) {
             [cell setAsSelected:YES];
             self.selectedRowIndexPath = indexPath;
         }
+    }
+
+    if (cell.selectionStyle == UITableViewCellSelectionStyleNone) {
+        cell.delegate = self;
     }
 
     return cell;
@@ -160,7 +165,7 @@
         id viewController = [viewControllerClass alloc];
         BaseSettingsViewController *settingsViewController = (BaseSettingsViewController *)[viewController initWithSettings:self.settings];
         [self.navigationController pushViewController:settingsViewController animated:YES];
-    } else {
+    } else if (selectedCell.selectionStyle != UITableViewCellSelectionStyleNone) {
         [self.settingsController setLinkedValue:selectedValue];
         if (self.selectedRowIndexPath) {
             BaseSettingsTableViewCell *previousSelectedCell = (BaseSettingsTableViewCell *) [tableView cellForRowAtIndexPath:self.selectedRowIndexPath];
@@ -170,5 +175,14 @@
         self.selectedRowIndexPath = indexPath;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - SettingsTableViewCellDelegate
+//------------------------------------------------------------------------------
+
+- (void)valueDidChange:(id)value
+{
+    self.settingsController.linkedValue = value;
 }
 @end

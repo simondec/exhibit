@@ -8,9 +8,11 @@
 
 @class Moment;
 @protocol PresentationViewDelegate;
+@class AUBOrganization;
 
 @interface PresentationView : UIView
 @property (nonatomic, weak) id <PresentationViewDelegate> delegate;
+- (void)setOrganization:(AUBOrganization *)organization;
 - (void)transitionToMoment:(Moment *)moment duration:(NSTimeInterval)duration;
 @end
 

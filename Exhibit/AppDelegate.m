@@ -44,6 +44,7 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
         config.slideDuration = 7;
         config.slideCount = 52;
         config.recentMomentsLookupInterval = 60 * 30;
+        config.remoteEnabled = YES;
     }
 
     self.slideshowController = [[SlideshowController alloc] initWithConfiguration:config];
@@ -106,13 +107,18 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
 
     [StorageClient putObject:settings forKey:StorageSettingsKey];
 
-    self.presentationViewController = [[PresentationViewController alloc] initWithSlideshowController:self.slideshowController];
+    self.presentationViewController = [[PresentationViewController alloc] initWithSlideshowController:self.slideshowController settings:settings];
 
     if (self.externalWindow) {
         self.externalWindow.rootViewController = self.presentationViewController;
 
-        MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
-        self.window.rootViewController = momentsViewController;
+        if (settings.remoteEnabled) {
+            MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
+            self.window.rootViewController = momentsViewController;
+        } else {
+            self.window.rootViewController = nil;
+        }
+
 
     } else {
         self.window.rootViewController = self.presentationViewController;
@@ -148,8 +154,15 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
         self.externalWindow.hidden = NO;
 
         if (self.hasStartedSlideshow) {
-            MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
-            self.window.rootViewController = momentsViewController;
+
+            Settings *config = [StorageClient objectForKey:StorageSettingsKey];
+            if (config.remoteEnabled) {
+                MomentsViewController *momentsViewController = [[MomentsViewController alloc] initWithSlideshowController:self.slideshowController];
+                self.window.rootViewController = momentsViewController;
+            } else {
+                self.window.rootViewController = nil;
+            }
+
             self.externalWindow.rootViewController = self.presentationViewController;
         } else {
             self.externalWindow.rootViewController = [LogoViewController new];

@@ -40,6 +40,19 @@
 					"targetFile": "lookupInterval"
 				}
 			]
+		},
+		{
+			"header": "",
+			"fields":
+			[
+				{
+					"type": "keyValue",
+					"caption": "settings_remote_caption",
+					"linkedValue": "remoteEnabled",
+					"formatter":"BooleanFormatter",
+					"targetFile": "remote"
+				}
+			]
 		}
 	]
 }

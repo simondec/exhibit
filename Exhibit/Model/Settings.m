@@ -20,6 +20,7 @@
     [coder encodeDouble:self.slideDuration forKey:@"slideDuration"];
     [coder encodeInteger:self.slideCount forKey:@"slideCount"];
     [coder encodeDouble:self.recentMomentsLookupInterval forKey:@"recentMomentsLookupInterval"];
+    [coder encodeBool:self.remoteEnabled forKey:@"remoteEnabled"];
 
 }
 
@@ -35,6 +36,7 @@
         self.slideDuration = [coder decodeDoubleForKey:@"slideDuration"];
         self.slideCount = [coder decodeIntegerForKey:@"slideCount"];
         self.recentMomentsLookupInterval = [coder decodeDoubleForKey:@"recentMomentsLookupInterval"];
+        self.remoteEnabled = [coder decodeBoolForKey:@"remoteEnabled"];
     }
     return self;
 }

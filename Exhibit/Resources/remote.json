@@ -1,0 +1,18 @@
+{
+	"title": "settings_remote_title",
+	"linkedValue": "remoteEnabled",
+	"sections":
+	[
+		{
+			"header": "settings_remote_header_title",
+			"fields":
+			[
+				{
+					"type": "switch",
+          "caption": "settings_remote_caption",
+          "linkedValue": "remoteEnabled"
+				}
+			]
+		}
+	]
+}
