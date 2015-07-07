@@ -23,7 +23,6 @@
 		1F59062F5AD40C77FBA6A388 /* IntegerFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590108AAC343965AD85E23 /* IntegerFormatter.m */; };
 		1F59064B32106C93CD62CC8A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590D625719F26AB670D767 /* RootViewController.m */; };
 		1F590653EAE37CD105664542 /* AvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590A451DFC04AAEA33F32F /* AvatarView.m */; };
-		1F59065BBC6BF5FF567B5ABE /* SlideView.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F59072E65D4F24A147A3AA5 /* SlideView.json */; };
 		1F590669F1BD40C7589B80E6 /* slideCount.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F590B66F3D6E2E0E4C13F24 /* slideCount.json */; };
 		1F59066E6B9F12BFF1D75826 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F590E34EC54081E1062ACC3 /* Lato-Light.ttf */; };
 		1F590723CC9C0616A4A039FC /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F590FE94767CB5ABBE53ACA /* MessageTableViewCell.m */; };
@@ -118,7 +117,6 @@
 		1F590602051A88B409BD639C /* PresentationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationView.m; sourceTree = "<group>"; };
 		1F59060C40BFD66FAEAFA0DA /* SlideshowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideshowController.m; sourceTree = "<group>"; };
 		1F590630009C038991552D2C /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file.ttf; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
-		1F59072E65D4F24A147A3AA5 /* SlideView.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = SlideView.json; sourceTree = "<group>"; };
 		1F59077A2BC3D42A3079CD6C /* BooleanFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanFormatter.h; sourceTree = "<group>"; };
 		1F59078D870D907D9E188EA3 /* UIImage+BlurredFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFilter.m"; sourceTree = "<group>"; };
 		1F59080321A84AACA73C399B /* BaseSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSettingsViewController.h; sourceTree = "<group>"; };
@@ -325,7 +323,6 @@
 				1F590FCD062A2DCB3E70B3F8 /* PresentationView.h */,
 				1F590BB9C9EBFAEF6BA59C82 /* SlideView.m */,
 				1F590BCCBB228397E8E7761F /* SlideView.h */,
-				1F59072E65D4F24A147A3AA5 /* SlideView.json */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -621,7 +618,6 @@
 				1F590E3EB9D859E75100B631 /* slideDuration.json in Resources */,
 				1F590286CFE639A1C62CAF2B /* lookupInterval.json in Resources */,
 				1F590F619DF99E24A6A49233 /* organization.json in Resources */,
-				1F59065BBC6BF5FF567B5ABE /* SlideView.json in Resources */,
 				1F590DEF41D735A99D88F364 /* remote.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

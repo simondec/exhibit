@@ -44,7 +44,6 @@
 
         self.lifeAtLabel = [UILabel new];
         self.lifeAtLabel.textColor = [UIColor whiteColor];
-        self.lifeAtLabel.font = [UIFont fontWithName:@"Lato-Medium" size:18];
         self.lifeAtLabel.shadowColor = [UIColor colorWithWhite:0 alpha:0.2f];
         self.lifeAtLabel.shadowOffset = CGSizeMake(0, 1);
         self.lifeAtLabel.alpha = 0;
@@ -59,11 +58,14 @@
 {
     [super layoutSubviews];
     if (!CGSizeEqualToSize(self.mc_size, self.referenceSize)) {
+
+        CGFloat logoWidth = roundf(self.mc_width * 0.03f);
+
         self.referenceSize = self.mc_size;
         CGSize backgroundSize = self.mc_size;
         [self.activityIndicatorView mc_setPosition:MCViewPositionCenters];
         [self.backgroundImageView mc_setPosition:MCViewPositionVCenterLeft withMargins:UIEdgeInsetsZero size:backgroundSize];
-        [self.nwadLogoImageView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(40, 40)];
+        [self.nwadLogoImageView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(logoWidth, logoWidth)];
         [self.currentSlideView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:self.mc_size];
     }
     [self.lifeAtLabel mc_setRelativePosition:MCViewRelativePositionToTheRightCentered toView:self.nwadLogoImageView withMargins:UIEdgeInsetsMake(0, 20, 0, 0) size:[self.lifeAtLabel sizeThatFits:CGSizeZero]];
@@ -75,6 +77,8 @@
 
 - (void)setOrganization:(AUBOrganization *)organization
 {
+    CGFloat textSize = roundf(self.nwadLogoImageView.mc_width * 0.45f);
+    self.lifeAtLabel.font = [UIFont fontWithName:@"Lato-Medium" size:textSize];
     self.lifeAtLabel.text = [NSString stringWithFormat:NSLocalizedString(@"life_at_organization", nil), organization.name];
     [self setNeedsLayout];
 }

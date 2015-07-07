@@ -22,8 +22,6 @@
 @property (nonatomic) CGSize referenceSize;
 @property (nonatomic) BOOL moveLeft;
 @property (nonatomic) Moment *moment;
-
-@property (nonatomic) MRGArchitect *architect;
 @end
 
 @implementation SlideView
@@ -31,15 +29,10 @@
 {
     if (self = [super initWithFrame:CGRectZero]) {
 
-        self.architect = [MRGArchitect architectForClassName:NSStringFromClass(self.class)];
-        CGFloat momentTitleFontSize = [self.architect floatForKey:@"momentTitleFontSize"];
-        CGFloat momentInfoFontSize = [self.architect floatForKey:@"momentInfoFontSize"];
-
         self.moment = moment;
         self.moveLeft = moveLeft;
 
         self.momentImageContainerView = [[UIImageView alloc] initWithImage:[UIImage mc_generateImageOfSize:CGSizeMake(2, 2) color:[UIColor whiteColor]]];
-//        [self.momentImageContainerView setBackgroundColor:[UIColor whiteColor]];
         self.momentImageContainerView.alpha = 0;
         self.momentImageContainerView.layer.rasterizationScale = [UIScreen mainScreen].scale;
         self.momentImageContainerView.layer.shouldRasterize = YES;
@@ -60,7 +53,6 @@
         self.momentTitle.numberOfLines = 0;
         self.momentTitle.text = moment.momentDescription;
         self.momentTitle.textColor = [UIColor whiteColor];
-        self.momentTitle.font = [UIFont fontWithName:@"Lato-Medium" size:momentTitleFontSize];
         self.momentTitle.shadowColor = [UIColor colorWithWhite:0 alpha:0.2f];
         self.momentTitle.shadowOffset = CGSizeMake(0, 1);
         self.momentTitle.textAlignment = moveLeft ? NSTextAlignmentLeft : NSTextAlignmentRight;
@@ -69,7 +61,6 @@
         self.momentInfo = [UILabel new];
         self.momentInfo.text = [NSString stringWithFormat:@"%@ ― %@", moment.author, moment.relativeDate];
         self.momentInfo.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8f];
-        self.momentInfo.font = [UIFont fontWithName:@"Lato-Medium" size:momentInfoFontSize];
         self.momentInfo.shadowColor = [UIColor colorWithWhite:0 alpha:0.2f];
         self.momentInfo.shadowOffset = CGSizeMake(0, 1);
         [self.momentInfoContainerView addSubview:self.momentInfo];
@@ -82,15 +73,14 @@
 {
     [super layoutSubviews];
 
-    CGFloat momentWidth = self.mc_height / 2.0f; //[self.architect floatForKey:@"momentWidth"];
-    CGFloat momentBorderWidth = [self.architect floatForKey:@"momentBorderWidth"];
+    CGFloat momentWidth = self.mc_height / 2.0f;
+    CGFloat momentBorderWidth = 20.0f;
 
     if (!CGSizeEqualToSize(self.mc_size, self.referenceSize)) {
         self.referenceSize = self.mc_size;
-        
 
-        CGSize momentInfoSize = CGSizeMake(momentWidth * 1.5f, self.mc_height);
-        CGFloat horizontalMargin = floorf((self.mc_width - momentWidth - momentInfoSize.width - 40.0f) / 2.0f);
+        CGSize momentInfoSize = CGSizeMake(momentWidth * 1.2f, self.mc_height);
+        CGFloat horizontalMargin = floorf((self.mc_width - momentWidth - momentInfoSize.width - 40.0f) * 0.7f);
 
         if (self.moveLeft) {
             [self.momentImageContainerView mc_setPosition:MCViewPositionVCenterLeft withMargins:UIEdgeInsetsMake(0, horizontalMargin, 0, 0) size:CGSizeMake(momentWidth + momentBorderWidth, momentWidth + momentBorderWidth)];
@@ -117,6 +107,12 @@
 
 - (void)presentMoment:(void (^)(void))completion
 {
+
+    CGFloat momentTitleSize = roundf(self.mc_width * 0.025f);
+    CGFloat momentInfoSize = roundf(momentTitleSize * 0.7f);
+    self.momentTitle.font = [UIFont fontWithName:@"Lato-Medium" size:momentTitleSize];
+    self.momentInfo.font = [UIFont fontWithName:@"Lato-Medium" size:momentInfoSize];
+
     [self layoutIfNeeded];
 
     CGFloat rotationAngle = self.moveLeft ? -M_PI_2 : M_PI_2;
