@@ -73,9 +73,12 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
     [center removeObserver:self];
 }
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{
-    return UIInterfaceOrientationMaskAll;
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)_window {
+    if ([UIScreen mainScreen] == _window.screen || !_window) {
+        return UIInterfaceOrientationMaskAll;
+    }else {
+        return UIInterfaceOrientationPortrait;
+    }
 }
 
 //------------------------------------------------------------------------------

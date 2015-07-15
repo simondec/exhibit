@@ -14,7 +14,8 @@
 @interface PresentationView ()
 @property (nonatomic) CGSize referenceSize;
 @property (nonatomic) UIActivityIndicatorView *activityIndicatorView;
-@property (nonatomic) UIImageView *backgroundImageView;
+@property (nonatomic) UIImageView *firstBackgroundImageView;
+@property (nonatomic) UIImageView *secondBackgroundImageView;
 @property (nonatomic) UIImageView *nwadLogoImageView;
 @property (nonatomic) UILabel *lifeAtLabel;
 @property (nonatomic) SlideView *currentSlideView;
@@ -33,10 +34,15 @@
         [self.activityIndicatorView startAnimating];
         [self addSubview:self.activityIndicatorView];
 
-        self.backgroundImageView = [UIImageView new];
-        self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
-        self.backgroundImageView.alpha = 0.8f;
-        [self addSubview:self.backgroundImageView];
+        self.firstBackgroundImageView = [UIImageView new];
+        self.firstBackgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.firstBackgroundImageView.alpha = 0;
+        [self addSubview:self.firstBackgroundImageView];
+
+        self.secondBackgroundImageView = [UIImageView new];
+        self.secondBackgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.secondBackgroundImageView.alpha = 0;
+        [self addSubview:self.secondBackgroundImageView];
 
         self.nwadLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NWADLogoPicto"]];
         self.nwadLogoImageView.alpha = 0;
@@ -62,9 +68,10 @@
         CGFloat logoWidth = roundf(self.mc_width * 0.03f);
 
         self.referenceSize = self.mc_size;
-        CGSize backgroundSize = self.mc_size;
+        CGSize backgroundSize = CGRectInset(self.bounds, -0.02f * self.mc_width, 0).size;
         [self.activityIndicatorView mc_setPosition:MCViewPositionCenters];
-        [self.backgroundImageView mc_setPosition:MCViewPositionVCenterLeft withMargins:UIEdgeInsetsZero size:backgroundSize];
+        [self.firstBackgroundImageView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:backgroundSize];
+        [self.secondBackgroundImageView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:backgroundSize];
         [self.nwadLogoImageView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(logoWidth, logoWidth)];
         [self.currentSlideView mc_setPosition:MCViewPositionCenters withMargins:UIEdgeInsetsZero size:self.mc_size];
     }
@@ -118,13 +125,18 @@
 
 - (void)transitionBackground:(UIImage *)backgroundImage duration:(NSTimeInterval)duration
 {
-    CATransition *transition = [CATransition animation];
-    transition.duration = 1.0;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    transition.type = kCATransitionFade;
-    [self.backgroundImageView.layer addAnimation:transition forKey:nil];
-    self.backgroundImageView.image = backgroundImage;
+    UIImageView *appearingImageView = self.moveLeft ? self.firstBackgroundImageView : self.secondBackgroundImageView;
+    UIImageView *disappearingImageView = self.moveLeft ? self.secondBackgroundImageView : self.firstBackgroundImageView;
 
+    appearingImageView.image = backgroundImage;
+    appearingImageView.transform = CGAffineTransformIdentity;
+
+    [UIView animateWithDuration:1.0f animations:^{
+        appearingImageView.alpha = 0.8f;
+        disappearingImageView.alpha = 0;
+    } completion:^(BOOL finished) {
+        disappearingImageView.image = nil;
+    }];
 }
 
 - (void)presentMoment:(Moment *)moment
@@ -143,8 +155,11 @@
 
     CGFloat translationX = 0.02f * self.mc_width * (self.moveLeft ? -1 : 1);
 
+    UIImageView *currentBackgroundImageView = self.moveLeft ? self.firstBackgroundImageView : self.secondBackgroundImageView;
+
     [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.currentSlideView.transform = CGAffineTransformMakeTranslation(translationX, 0);
+        currentBackgroundImageView.transform = CGAffineTransformMakeTranslation(-translationX, 0);
     } completion:^(BOOL finished) {
     }];
 }
