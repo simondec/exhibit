@@ -18,9 +18,7 @@
 #import "RootViewController.h"
 #import "StorageClient.h"
 #import "LogoViewController.h"
-
-static NSString *const AubergisteClientID = @"893123332c62670ee75b90df3e6378d2cefc85ac84d3e07d63ae37291414bef0";
-static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13762e17843300e87f3ce25eb8c6e434cb61";
+#import <Keys/ExhibitKeys.h>
 
 @interface AppDelegate () <RootViewControllerDelegate>
 @property (nonatomic) SlideshowController *slideshowController;
@@ -34,7 +32,10 @@ static NSString *const AubergisteClientSecret = @"1e443d57507880fe32853ddf242e13
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[AUBAubergiste sharedInstance] setClientID:AubergisteClientID clientSecret:AubergisteClientSecret];
+    
+    ExhibitKeys *keys = [[ExhibitKeys alloc] init];
+    
+    [[AUBAubergiste sharedInstance] setClientID:keys.aubergisteClientID clientSecret:keys.aubergisteClientSecret];
     
     [application setStatusBarHidden:YES];
 

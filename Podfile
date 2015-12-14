@@ -17,3 +17,11 @@ pod 'pop', '~> 1.0'
 pod 'SDWebImage'
 pod 'FormatterKit'
 pod 'TTTAttributedLabel'
+
+plugin 'cocoapods-keys', {
+  :project => "Exhibit",
+  :keys => [
+    "AubergisteClientID",
+    "AubergisteClientSecret"
+  ]}
+
