@@ -74,7 +74,7 @@
     self.momentSize = CGSizeMake(momentHeight, momentHeight);
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscape;
 }
 

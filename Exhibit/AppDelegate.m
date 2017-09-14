@@ -74,11 +74,11 @@
     [center removeObserver:self];
 }
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)_window {
-    if ([UIScreen mainScreen] == _window.screen || !_window) {
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)_window {
+    if ([UIScreen mainScreen] == self.window.screen || !self.window) {
         return UIInterfaceOrientationMaskAll;
     }else {
-        return UIInterfaceOrientationPortrait;
+        return UIInterfaceOrientationMaskPortrait;
     }
 }
 

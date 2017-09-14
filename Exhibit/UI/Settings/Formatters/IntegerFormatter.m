@@ -11,6 +11,6 @@
 @implementation IntegerFormatter
 - (NSString *)formattedValue:(id)value
 {
-    return [NSString stringWithFormat:@"%i", [value integerValue]];
+    return [NSString stringWithFormat:@"%li", (long)[value integerValue]];
 }
 @end

@@ -10,6 +10,7 @@
 @interface Moment : NSObject
 @property (nonatomic) NSString *momentDescription;
 @property (nonatomic) NSString *author;
+@property (nonatomic) NSDate *createdAt;
 @property (nonatomic) NSString *relativeDate;
 @property (nonatomic) UIImage *media;
 @property (nonatomic) UIImage *blurredBackground;

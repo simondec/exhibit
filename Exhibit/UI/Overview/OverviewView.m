@@ -131,7 +131,7 @@
         self.organizationSet = YES;
         [self.organizationImageView setImageWithURL:organization.avatar.large];
         self.organizationName.text = organization.name;
-        self.organizationMomentsCount.text = [NSString stringWithFormat:@"(%i moments)", organization.momentsCount];
+        self.organizationMomentsCount.text = [NSString stringWithFormat:@"(%li moments)", (long)organization.momentsCount];
         [self setNeedsLayout];
 
         [UIView animateWithDuration:0.5f delay:0.3f options:UIViewAnimationOptionCurveEaseOut animations:^{

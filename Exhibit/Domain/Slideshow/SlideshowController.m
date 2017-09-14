@@ -12,7 +12,6 @@
 #import "AUBMedia.h"
 #import "AUBOrganization.h"
 #import "UIImage+ProportionalFill.h"
-#import "TTTTimeIntervalFormatter.h"
 #import "UIImage+BlurredFilter.h"
 
 static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
@@ -26,7 +25,6 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 @property (nonatomic) NSUInteger nextRandomizedMomentIndex;
 @property (nonatomic) NSTimer *momentSwitchTimer;
 @property (nonatomic) NSTimer *recentMomentsLookupTimer;
-@property (nonatomic) TTTTimeIntervalFormatter *timeIntervalFormatter;
 @end
 
 @implementation SlideshowController
@@ -40,9 +38,6 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 
         _momentsData = [NSCache new];
         _momentsData.countLimit = 150;
-
-        self.timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
-        self.timeIntervalFormatter.presentTimeIntervalMargin = 60;
     }
     return self;
 }
@@ -103,6 +98,8 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 {
     __weak typeof(self) wSelf = self;
     [AUBMoment listFromOrganization:self.configuration.organization.objectID amount:self.configuration.slideCount from:nil completion:^(NSArray *array, NSError *error) {
+        NSLog(@"Loaded %lu moments", (unsigned long)array.count);
+        
         @synchronized (wSelf.chronologicalMomentsInfo) {
             wSelf.chronologicalMomentsInfo = [array mutableCopy];
         }
@@ -137,6 +134,8 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 
 - (void)loadNewMoments
 {
+    NSLog(@"Looking for new moments...");
+    
     __weak typeof(self) wSelf = self;
     [AUBMoment listFromOrganization:self.configuration.organization.objectID amount:self.configuration.slideCount from:nil completion:^(NSArray *array, NSError *error) {
         if (!error && [array count] > 0) {
@@ -158,6 +157,8 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
                    NSUInteger randomizedIndex = arc4random_uniform(self.randomizedMomentsOrder.count + 1);
                    [self.randomizedMomentsOrder insertObject:@(i) atIndex:randomizedIndex];
                }
+               
+               NSLog(@"Loaded %lu new moments, deleted %lu moments", self.chronologicalMomentsInfo.count - previousMomentsCount, (unsigned long)deletions.count);
 
                dispatch_async(dispatch_get_main_queue(), ^{
                    for (id <SlideshowObserver> observer in self.observers) {
@@ -167,8 +168,12 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
                    }
                });
 
+           } else {
+               NSLog(@"No changes in moments list");
            }
 
+        } else if (error) {
+            NSLog(@"Looking for new moments failed with error: %@", error.localizedDescription);
         }
     }];
 }
@@ -176,6 +181,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 - (void)shuffleMomentsOrder
 {
     NSUInteger count = [self.chronologicalMomentsInfo count];
+    [self.randomizedMomentsOrder removeAllObjects];
     for (NSUInteger i = 0; i < count; ++i) {
         NSUInteger randomizedIndex = arc4random_uniform(self.randomizedMomentsOrder.count + 1);
         [self.randomizedMomentsOrder insertObject:@(i) atIndex:randomizedIndex];
@@ -196,6 +202,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
 {
 
     if (self.chronologicalMomentsInfo.count == 0) {
+        NSLog(@"Moment could not be prepared, no moments available: %lu", (unsigned long)index);
         return NO;
     }
 
@@ -204,15 +211,22 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
     SDImageCache *imageCache = [SDImageCache sharedImageCache];
 
     AUBMoment *momentInfo = self.chronologicalMomentsInfo[index];
+    
+    if (momentInfo == nil || momentInfo.momentDescription.length == 0 || momentInfo.media == nil || momentInfo.user == nil || momentInfo.user.fullName.length == 0) {
+        NSLog(@"Moment could not be prepared, data missing: %lu", (unsigned long)index);
+        return NO;
+    }
+    
     Moment *moment = [Moment new];
     moment.momentDescription = momentInfo.momentDescription;
     moment.author = momentInfo.user.fullName;
-    moment.relativeDate = [self.timeIntervalFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:momentInfo.createdAt];
+    moment.createdAt = momentInfo.createdAt;
 
     moment.media = [imageCache imageFromMemoryCacheForKey:momentInfo.media.large.absoluteString];
     if (!moment.media) {
         NSData *imageData = [NSData dataWithContentsOfURL:momentInfo.media.large];
         if (imageData == nil) {
+            NSLog(@"Moment could not be prepared, image missing: %lu", (unsigned long)index);
             successfullyPreparedMoment = NO;
         }
         moment.media = [UIImage imageWithData:imageData];
@@ -221,7 +235,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
     if (successfullyPreparedMoment) {
         moment.blurredBackground = [[moment.media imageScaledToFitSize:CGSizeMake(450, 450)] blurredImage];
         [self.momentsData setObject:moment forKey:momentInfo.objectID];
-//        NSLog(@"Moment prepared successfully: %i", index);
+        NSLog(@"Moment prepared successfully: %lu", (unsigned long)index);
     }
 
     return successfullyPreparedMoment;
@@ -258,7 +272,7 @@ static const NSInteger SlideshowControllerArbitraryNewMomentsFetchCount = 10;
     }
 
     Moment *moment = [self.momentsData objectForKey:momentInfo.objectID];
-//    NSLog(@"Display moment %i", index);
+    NSLog(@"Display moment %lu", (unsigned long)index);
 
     for (id <SlideshowObserver> observer in self.observers) {
         if ([observer respondsToSelector:@selector(displayMoment:atChronologicalIndex:)]) {

@@ -8,11 +8,13 @@
 #import "PresentationView.h"
 #import "Moment.h"
 #import "Settings.h"
+#import "TTTTimeIntervalFormatter.h"
 
 @interface PresentationViewController() <PresentationViewDelegate, SlideshowObserver>
 @property (nonatomic) SlideshowController *slideshowController;
 @property (nonatomic) Settings *settings;
 @property (nonatomic) PresentationView *presentationView;
+@property (nonatomic) TTTTimeIntervalFormatter *timeIntervalFormatter;
 @end
 
 @implementation PresentationViewController
@@ -21,6 +23,8 @@
     if (self = [super init]) {
         _slideshowController = slideshowController;
         _settings = settings;
+        self.timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
+        self.timeIntervalFormatter.presentTimeIntervalMargin = 60;
     }
     return self;
 }
@@ -46,7 +50,7 @@
     [self.slideshowController removeSlideshowObserver:self];
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscape;
 }
 
@@ -62,6 +66,8 @@
 
 - (void)displayMoment:(Moment *)moment atChronologicalIndex:(NSInteger)index
 {
+    NSString *relativeDate = [self.timeIntervalFormatter stringForTimeIntervalFromDate:[NSDate date] toDate:moment.createdAt];
+    moment.relativeDate = relativeDate;
     [self.presentationView transitionToMoment:moment duration:self.slideshowController.slideDuration];
 }
 

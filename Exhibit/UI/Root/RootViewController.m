@@ -35,7 +35,7 @@
     return self;
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     UITraitCollection *traitCollection = [UIScreen mainScreen].traitCollection;
     if (traitCollection.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         return UIInterfaceOrientationMaskLandscape;
